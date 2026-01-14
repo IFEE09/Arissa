@@ -404,23 +404,24 @@ onMounted(() => {
   z-index: 0;
 }
 
-/* Particle Wrapper - Desktop Layout */
+/* Particle Wrapper - Desktop Layout (Alone on the right) */
 .particle-wrapper {
   position: absolute;
   top: 50%;
-  right: -25vw; /* Off-center to the right */
+  left: 110%; /* Starts outside the text container */
   transform: translateY(-50%);
-  width: 60vw;
-  height: 90vh;
+  width: 50vw;
+  height: 80vh;
   z-index: 1;
   opacity: 0.8;
   pointer-events: none;
+  display: block;
 }
 
 @media (max-width: 1023px) {
   .hero {
     flex-direction: column;
-    padding-top: 2rem;
+    padding-top: 3rem;
     height: auto;
     min-height: auto;
     text-align: center;
@@ -434,17 +435,17 @@ onMounted(() => {
     max-width: 100%;
   }
 
-  /* Particles strictly BELOW "Expertos en..." and ABOVE the subtitle */
+  /* Particles strictly BELOW "Expertos en..." and ABOVE the subtitle in mobile */
   .particle-wrapper {
     position: relative;
     top: auto;
+    left: auto;
     right: auto;
     transform: none;
     width: 100%;
-    height: 320px; /* Space dedicated only to particles */
-    margin: 1.5rem 0;
+    height: 320px; /* Dedicated space */
+    margin: 1rem 0;
     opacity: 1;
-    z-index: 1;
   }
 
   .hero-subtitle {
