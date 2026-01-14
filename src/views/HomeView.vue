@@ -89,9 +89,22 @@ const loadServices = async () => {
   }
 }
 
+// Dynamic Particle Count
+const particleCount = ref(400)
+const updateParticleCount = () => {
+  particleCount.value = window.innerWidth >= 1024 ? 800 : 400
+}
+
 onMounted(() => {
   setTimeout(typeWriter, 1000)
   loadServices()
+  updateParticleCount()
+  window.addEventListener('resize', updateParticleCount)
+})
+
+import { onUnmounted } from 'vue'
+onUnmounted(() => {
+  window.removeEventListener('resize', updateParticleCount)
 })
 </script>
 
@@ -116,7 +129,7 @@ onMounted(() => {
 
           <!-- Particle Cloud Component (Moved inside content for better flow control) -->
           <div class="particle-wrapper">
-            <ParticleCloud :count="400" />
+            <ParticleCloud :count="particleCount" />
           </div>
 
           <p class="hero-subtitle">
