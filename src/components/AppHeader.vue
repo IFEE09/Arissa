@@ -290,7 +290,7 @@ onUnmounted(() => {
 }
 
 /* Monitor Styles */
-@media (min-width: 900px) {
+@media (min-width: 768px) {
   .nav-desktop {
     display: flex;
   }

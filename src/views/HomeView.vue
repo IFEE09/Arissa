@@ -603,21 +603,18 @@ onMounted(() => {
   }
 }
 
-@media (min-width: 768px) {
-  .services-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .hero-stats {
-    gap: 4rem;
-  }
-}
-
 @media (min-width: 1024px) {
   .hero {
     padding: 10rem 0 8rem;
   }
   .hero h1 {
     font-size: 5rem;
+  }
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for better balance with 5 items */
+  }
+  .hero-stats {
+    gap: 4rem;
   }
 }
 </style>
