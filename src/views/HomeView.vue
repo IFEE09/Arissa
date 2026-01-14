@@ -298,7 +298,7 @@ onMounted(() => {
 .hero-subtitle {
   font-family: 'Manrope', sans-serif;
   font-size: 1.25rem;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.9); /* More white */
   line-height: 1.8;
   margin-bottom: 2.5rem;
   max-width: 600px;
@@ -402,6 +402,16 @@ onMounted(() => {
   z-index: 0;
 }
 
+@media (max-width: 1023px) {
+  .hero-bg-gradient {
+    top: auto;
+    bottom: -10%;
+    right: 0;
+    width: 100%;
+    height: 50%;
+  }
+}
+
 /* Particle Wrapper */
 .particle-wrapper {
   position: absolute;
@@ -411,6 +421,17 @@ onMounted(() => {
   height: 100%;
   z-index: 1;
   opacity: 0.9;
+  pointer-events: none;
+}
+
+@media (max-width: 1023px) {
+  .particle-wrapper {
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    height: 60%;
+    background: radial-gradient(circle at bottom, rgba(102, 252, 241, 0.05) 0%, transparent 70%);
+  }
 }
 
 /* Section Headers */
