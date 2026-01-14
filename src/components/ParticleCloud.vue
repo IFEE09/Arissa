@@ -4,7 +4,7 @@ import { computed } from 'vue'
 const props = defineProps({
   count: {
     type: Number,
-    default: 1500,
+    default: 400, // Reduced from 1500 for performance
   },
   mini: {
     type: Boolean,
@@ -24,23 +24,20 @@ const cmykColors = [
 // Generate particles
 const particles = computed(() => {
   return Array.from({ length: props.count }, (_, index) => {
-    // Si es mini, partículas más pequeñas y rápidas
-    const baseSize = props.mini ? 0.5 : 2
-    const sizeVar = props.mini ? 1.5 : 6
+    const baseSize = props.mini ? 0.5 : 1.5
+    const sizeVar = props.mini ? 1 : 3
 
-    // Velocidad: Si es mini, movimiento lento y suave (8-12s)
-    const minDuration = props.mini ? 8 : 8.4375
-    const durationVar = props.mini ? 4 : 11.25
+    const minDuration = props.mini ? 10 : 15 // Slower for smoother feel
+    const durationVar = props.mini ? 5 : 10
 
     const size = Math.random() * sizeVar + baseSize
     const x = Math.random() * 100
     const y = Math.random() * 100
-    const delay = props.mini ? 0 : Math.random() * 20 // Sincronizadas en mini
+    const delay = props.mini ? 0 : Math.random() * -20 // Use negative delay to start mid-animation
     const duration = Math.random() * durationVar + minDuration
     const color = cmykColors[index % cmykColors.length]
 
-    // Ajustar shadow para mini (menos glow para no saturar)
-    const boxShadow = color === '#66FCF1' ? `0 0 ${props.mini ? '2px' : '8px'} ${color}` : 'none'
+    // REMOVED individual box-shadow (very expensive for scrolling)
 
     return {
       id: index,
@@ -50,7 +47,7 @@ const particles = computed(() => {
         left: `${x}%`,
         top: `${y}%`,
         backgroundColor: color,
-        boxShadow: boxShadow,
+        opacity: Math.random() * 0.5 + 0.3,
         animationDelay: `${delay}s`,
         animationDuration: `${duration}s`,
       },
@@ -131,14 +128,12 @@ const particles = computed(() => {
   100% {
     transform: translate3d(0, 0, 0);
   }
-  25% {
-    transform: translate3d(15px, -20px, 0);
-  }
   50% {
-    transform: translate3d(-10px, -40px, 0);
-  }
-  75% {
-    transform: translate3d(20px, -30px, 0);
+    transform: translate3d(
+      -20px,
+      -40px,
+      0
+    ); /* Simplified to 2 steps for better GPU interpolation */
   }
 }
 </style>

@@ -116,7 +116,7 @@ onMounted(() => {
 
           <!-- Particle Cloud Component (Moved inside content for better flow control) -->
           <div class="particle-wrapper">
-            <ParticleCloud :count="1500" />
+            <ParticleCloud :count="400" />
           </div>
 
           <p class="hero-subtitle">
@@ -346,8 +346,8 @@ onMounted(() => {
 
 /* Hero Stats */
 .hero-stats {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-top: 4rem;
   padding-top: 2rem;
@@ -357,6 +357,26 @@ onMounted(() => {
 .stat {
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 767px) {
+  .hero-stats {
+    grid-template-columns: repeat(3, 1fr); /* Keep 3 columns but refine spacing */
+    gap: 1rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-stats {
+    gap: 0.5rem;
+  }
+  .stat-value {
+    font-size: 1.75rem !important;
+  }
+  .stat-label {
+    font-size: 0.65rem !important;
+  }
 }
 
 .stat-value {

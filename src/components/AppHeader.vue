@@ -73,7 +73,7 @@ onUnmounted(() => {
             style="filter: brightness(0) invert(1)"
           />
           <div v-else key="particles" class="logo-particles-cloud">
-            <ParticleCloud :count="300" :mini="true" />
+            <ParticleCloud :count="150" :mini="true" />
           </div>
         </transition>
       </RouterLink>
