@@ -2,6 +2,7 @@
 import { RouterView } from 'vue-router'
 import AppHeader from './components/AppHeader.vue'
 import AppFooter from './components/AppFooter.vue'
+import CookieConsent from './components/CookieConsent.vue'
 </script>
 
 <template>
@@ -14,6 +15,7 @@ import AppFooter from './components/AppFooter.vue'
     </RouterView>
   </main>
   <AppFooter />
+  <CookieConsent />
 </template>
 
 <style scoped>
