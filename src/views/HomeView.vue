@@ -113,6 +113,12 @@ onMounted(() => {
               </span>
             </span>
           </h1>
+
+          <!-- Particle Cloud Component (Moved inside content for better flow control) -->
+          <div class="particle-wrapper">
+            <ParticleCloud :count="1500" />
+          </div>
+
           <p class="hero-subtitle">
             Transformamos tu empresa con software a la medida y automatizaciones inteligentes.
             Elimina tareas repetitivas, optimiza procesos y escala tu negocio con tecnología de
@@ -149,11 +155,6 @@ onMounted(() => {
       <!-- Decorative elements -->
       <div class="hero-bg-gradient"></div>
       <div class="hero-bg-pattern"></div>
-
-      <!-- Particle Cloud Component -->
-      <div class="particle-wrapper">
-        <ParticleCloud :count="1500" />
-      </div>
     </section>
 
     <!-- Services Section -->
@@ -403,6 +404,19 @@ onMounted(() => {
   z-index: 0;
 }
 
+/* Particle Wrapper - Desktop Layout */
+.particle-wrapper {
+  position: absolute;
+  top: 50%;
+  right: -25vw; /* Off-center to the right */
+  transform: translateY(-50%);
+  width: 60vw;
+  height: 90vh;
+  z-index: 1;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
 @media (max-width: 1023px) {
   .hero {
     flex-direction: column;
@@ -416,7 +430,21 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 1.5rem 4rem;
+    padding: 0 1rem 4rem;
+    max-width: 100%;
+  }
+
+  /* Particles strictly BELOW "Expertos en..." and ABOVE the subtitle */
+  .particle-wrapper {
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+    width: 100%;
+    height: 320px; /* Space dedicated only to particles */
+    margin: 1.5rem 0;
+    opacity: 1;
+    z-index: 1;
   }
 
   .hero-subtitle {
@@ -424,7 +452,7 @@ onMounted(() => {
     margin-right: auto;
     color: #ffffff;
     opacity: 1;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    font-size: 1.15rem;
   }
 
   .hero-actions {
@@ -434,22 +462,10 @@ onMounted(() => {
     max-width: 320px;
   }
 
-  /* Separate space for particles at the top */
-  .particle-wrapper {
-    position: relative;
-    width: 100%;
-    height: 350px; /* Exclusive space */
-    order: -1; /* At the very top */
-    margin-bottom: -1rem;
-    opacity: 1;
-    top: auto;
-    right: auto;
-  }
-
   .hero-bg-gradient {
-    top: -10%;
+    top: 0;
     width: 100%;
-    height: 60%;
+    height: 100%;
     opacity: 0.15;
   }
 }
