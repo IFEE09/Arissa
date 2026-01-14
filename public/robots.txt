@@ -1,0 +1,9 @@
+# Robots.txt for Arissa
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://arissa.com/sitemap.xml
+
+# Crawl-delay (optional, be nice to servers)
+Crawl-delay: 1

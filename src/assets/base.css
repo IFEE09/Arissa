@@ -1,0 +1,270 @@
+/* ========================================
+   ARISSA - Dark Mode Premium (High-Tech Minimalist)
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* 1. PALETA DE COLORES (Arissa Premium) */
+
+  /* Canvas & Surfaces */
+  --color-background: #0b0c10; /* Deep Space Canvas */
+  --color-surface: #1f2833; /* Module/Card Surface */
+  --color-surface-hover: #26303e;
+
+  /* Brand Identity */
+  --color-brand: #09347a; /* Sarissa Blue (Deep & Intellectual) */
+  --color-brand-glow: rgba(9, 52, 122, 0.5);
+
+  /* Typography */
+  --color-text-main: #e6e6e6; /* Titanium White */
+  --color-text-muted: #8a9bb0; /* Cool Gray */
+
+  /* Action / The Spark */
+  --color-action: #66fcf1; /* Electric Cyan */
+  --color-action-hover: #45a29e;
+  --color-action-glow: rgba(102, 252, 241, 0.4);
+
+  /* Structural */
+  --color-border: #2c3e50; /* Structural Steel */
+  --color-border-subtle: rgba(44, 62, 80, 0.5);
+
+  /* Glassmorphism */
+  --glass-bg: rgba(11, 12, 16, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.05);
+
+  /* Shadows & Glows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.4);
+  --glow-action: 0 0 20px var(--color-action-glow);
+  --glow-brand: 0 0 25px var(--color-brand-glow);
+
+  /* Layout & Spacing */
+  --section-gap: 5rem;
+  --container-max: 1400px;
+
+  /* Typography Adjustments */
+  --tracking-wide: 0.1em;
+  --tracking-wider: 0.15em;
+
+  /* Border Radius */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px; /* Slightly softer but still tech */
+
+  /* Transitions */
+  --transition-fast: 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset & Setup */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-main);
+  font-family: 'Manrope', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Typography Hierarchy */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--color-text-main);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 3rem;
+  letter-spacing: -0.02em;
+}
+h2 {
+  font-size: 2.25rem;
+}
+h3 {
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+p {
+  color: var(--color-text-muted);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+a {
+  color: var(--color-action);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+a:hover {
+  text-shadow: 0 0 8px var(--color-action-glow);
+}
+
+/* Component: Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border-radius: var(--radius-sm);
+  gap: 0.75rem;
+}
+
+.btn-primary {
+  background: transparent;
+  border: 1px solid var(--color-action);
+  color: var(--color-action);
+  box-shadow: 0 0 10px rgba(102, 252, 241, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  background: rgba(102, 252, 241, 0.1);
+  box-shadow: 0 0 20px var(--color-action-glow);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-text-main);
+  color: var(--color-text-main);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Container */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Utility: Glassmorphism */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Utility: Text Gradients (Subtle for this theme) */
+.text-gradient {
+  background: linear-gradient(90deg, var(--color-text-main), var(--color-action));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Utility: Tech Borders */
+.border-tech {
+  border: 1px solid var(--color-border);
+  position: relative;
+}
+
+/* Cards (Bento / Module Style) */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  padding: 2rem;
+  transition: all var(--transition-smooth);
+  position: relative;
+}
+
+.card:hover {
+  border-color: var(--color-action);
+  box-shadow: 0 0 20px rgba(9, 52, 122, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Badges */
+.badge {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 99px;
+  font-weight: 600;
+}
+
+.badge-accent {
+  background: rgba(102, 252, 241, 0.1);
+  color: var(--color-action);
+  border: 1px solid rgba(102, 252, 241, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slideInUp {
+  animation: slideInUp 0.6s ease-out forwards;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+}
