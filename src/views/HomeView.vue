@@ -539,16 +539,17 @@ onUnmounted(() => {
 }
 
 .service-card {
-  background: rgba(31, 40, 51, 0.5);
-  border: 1px solid var(--color-border);
+  background: rgba(31, 40, 51, 0.4);
+  border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-lg);
   padding: 2.5rem 2rem;
-  transition: all var(--transition-normal);
+  transition: all var(--transition-smooth);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .service-card::before {
@@ -564,12 +565,12 @@ onUnmounted(() => {
 }
 
 .service-card:hover {
-  background: rgba(31, 40, 51, 0.8);
+  background: rgba(31, 40, 51, 0.7);
   border-color: var(--color-action);
-  transform: translateY(-8px);
+  transform: translateY(-5px) scale(1.01);
   box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.3),
-    0 0 30px rgba(102, 252, 241, 0.1);
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(102, 252, 241, 0.05);
 }
 
 .service-card:hover::before {
@@ -582,13 +583,13 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(102, 252, 241, 0.15), rgba(9, 52, 122, 0.2));
-  border: 1px solid rgba(102, 252, 241, 0.2);
+  background: linear-gradient(135deg, rgba(102, 252, 241, 0.1), rgba(9, 52, 122, 0.15));
+  border: 1px solid rgba(102, 252, 241, 0.1);
   border-radius: var(--radius-md);
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
   color: var(--color-action);
-  transition: all var(--transition-normal);
+  transition: all var(--transition-smooth);
 }
 
 .service-card:hover .service-icon {
@@ -627,7 +628,7 @@ onUnmounted(() => {
   letter-spacing: 0.05em;
   opacity: 0;
   transform: translateY(10px);
-  transition: all var(--transition-normal);
+  transition: all var(--transition-smooth);
 }
 
 .service-card:hover .service-cta {
