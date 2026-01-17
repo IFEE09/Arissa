@@ -11,6 +11,7 @@ const isLoadingServices = ref(true)
 const typedText = ref('')
 const words = [
   'Automatización',
+  'POS',
   'Software a Medida',
   'Integraciones',
   'Inteligencia Artificial',
@@ -61,24 +62,30 @@ const loadServices = async () => {
       },
       {
         id: 2,
+        title: 'POS',
+        description: 'Puntos de venta para negocios personalizables.',
+        icon: 'fa-solid fa-cash-register',
+      },
+      {
+        id: 3,
         title: 'Software a Medida',
         description: 'Desarrollamos soluciones escalables adaptadas a tu negocio.',
         icon: 'fa-solid fa-code',
       },
       {
-        id: 3,
+        id: 4,
         title: 'Integraciones',
         description: 'Conectamos tus herramientas para un ecosistema unificado.',
         icon: 'fa-solid fa-link',
       },
       {
-        id: 4,
+        id: 5,
         title: 'Bots Multitareas',
         description: 'Bots inteligentes que automatizan procesos 24/7.',
         icon: 'fa-solid fa-robot',
       },
       {
-        id: 5,
+        id: 6,
         title: 'Bots para WhatsApp',
         description: 'Chatbots inteligentes para atención al cliente.',
         icon: 'fa-brands fa-whatsapp',

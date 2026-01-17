@@ -30,32 +30,38 @@ async function main() {
       order: 1,
     },
     {
+      title: 'POS',
+      description: 'Puntos de venta para negocios personalizables.',
+      icon: 'fa-solid fa-cash-register',
+      order: 2,
+    },
+    {
       title: 'Software a Medida',
       description:
         'Desarrollamos soluciones escalables adaptadas 100% a las necesidades de tu negocio.',
       icon: 'fa-solid fa-code',
-      order: 2,
+      order: 3,
     },
     {
       title: 'Integraciones',
       description:
         'Conectamos tus herramientas (CRM, ERP, Marketing) para un ecosistema de datos unificado.',
       icon: 'fa-solid fa-link',
-      order: 3,
+      order: 4,
     },
     {
       title: 'Bots Multitareas',
       description:
         'Creamos bots inteligentes que automatizan múltiples procesos simultáneamente, 24/7.',
       icon: 'fa-solid fa-robot',
-      order: 4,
+      order: 5,
     },
     {
       title: 'Bots para WhatsApp',
       description:
         'Automatiza la atención al cliente, ventas y soporte con chatbots inteligentes en WhatsApp.',
       icon: 'fa-brands fa-whatsapp',
-      order: 5,
+      order: 6,
     },
   ]
 
