@@ -16,11 +16,17 @@ export default defineConfig([
     languageOptions: {
       globals: {
         ...globals.browser,
+        ...globals.node,
       },
     },
   },
 
   js.configs.recommended,
+  {
+    rules: {
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    },
+  },
   ...pluginVue.configs['flat/essential'],
 
   skipFormatting,
