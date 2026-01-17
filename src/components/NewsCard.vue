@@ -48,13 +48,13 @@ defineProps({
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
-  transition: all var(--transition-normal);
+  transition: all var(--transition-smooth);
 }
 
 .news-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--glow-primary);
-  border-color: rgba(255, 0, 153, 0.3); /* Magenta border on hover */
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(102, 252, 241, 0.1);
+  border-color: var(--color-action);
 }
 
 .card-link {

@@ -262,7 +262,7 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-text-muted);
-  transition: all var(--transition-fast);
+  transition: all var(--transition-smooth);
   position: relative;
   padding: 0.5rem 0;
 }
@@ -276,7 +276,7 @@ onUnmounted(() => {
   width: 0;
   height: 1px;
   background-color: var(--color-action);
-  transition: width var(--transition-fast);
+  transition: width var(--transition-smooth);
 }
 
 .nav-link:hover,
@@ -314,7 +314,7 @@ onUnmounted(() => {
   border-radius: var(--radius-sm);
   color: var(--color-text-muted);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: all var(--transition-smooth);
 }
 
 .btn-icon:hover {

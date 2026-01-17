@@ -213,7 +213,7 @@ const socialLinks = [
   border-radius: var(--radius-sm);
   color: var(--color-text-main);
   outline: none;
-  transition: all var(--transition-fast);
+  transition: all var(--transition-smooth);
 }
 
 .newsletter-input::placeholder {
@@ -276,7 +276,7 @@ const socialLinks = [
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   color: var(--color-text-muted);
-  transition: all var(--transition-fast);
+  transition: all var(--transition-smooth);
 }
 
 .social-link:hover {
@@ -324,7 +324,7 @@ const socialLinks = [
 .footer-column a {
   color: var(--color-text-muted);
   font-size: 0.95rem;
-  transition: all var(--transition-fast);
+  transition: all var(--transition-smooth);
   position: relative;
   padding-left: 0;
 }

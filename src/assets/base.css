@@ -111,7 +111,7 @@ p {
 a {
   color: var(--color-action);
   text-decoration: none;
-  transition: all var(--transition-fast);
+  transition: all var(--transition-smooth);
 }
 
 a:hover {
@@ -130,7 +130,7 @@ a:hover {
   letter-spacing: 0.08em;
   font-size: 0.8rem;
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: all var(--transition-smooth);
   border-radius: var(--radius-sm);
   gap: 0.75rem;
 }
@@ -205,7 +205,7 @@ a:hover {
 .card:hover {
   border-color: var(--color-action);
   box-shadow: 0 0 20px rgba(9, 52, 122, 0.2);
-  transform: translateY(-2px);
+  transform: translateY(-4px) scale(1.01);
 }
 
 /* Badges */
