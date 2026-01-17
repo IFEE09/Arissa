@@ -178,7 +178,7 @@ onUnmounted(() => {
     </section>
 
     <!-- Services Section -->
-    <section class="section-services">
+    <section id="servicios" class="section-services">
       <div class="container">
         <div class="section-header">
           <h2><i class="fa-solid fa-rocket"></i> Nuestros Servicios</h2>
