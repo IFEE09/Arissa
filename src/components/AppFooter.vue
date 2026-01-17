@@ -11,7 +11,6 @@ const footerLinks = {
     { name: 'Mundo', path: '/categoria/mundo' },
   ],
   empresa: [
-    { name: 'Sobre Nosotros', path: '/about' },
     { name: 'Contacto', path: '/contacto' },
     { name: 'Trabaja con Nosotros', path: '/empleos' },
   ],

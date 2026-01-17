@@ -12,6 +12,7 @@ const mainLinks = [
   { name: 'Inicio', path: '/' },
   { name: 'Servicios', path: '/#servicios' },
   { name: 'Casos de Éxito', path: '/casos-de-exito' },
+  { name: 'Nosotros', path: '/about' },
 ]
 
 // Categorías de noticias (dropdown)
