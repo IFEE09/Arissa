@@ -90,6 +90,12 @@ const loadServices = async () => {
         description: 'Chatbots inteligentes para atención al cliente.',
         icon: 'fa-brands fa-whatsapp',
       },
+      {
+        id: 7,
+        title: 'Landing Pages',
+        description: 'Landing pages de alta conversión con bot integrado.',
+        icon: 'fa-solid fa-window-maximize',
+      },
     ]
   } finally {
     isLoadingServices.value = false

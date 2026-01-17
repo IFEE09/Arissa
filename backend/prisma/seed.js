@@ -63,6 +63,12 @@ async function main() {
       icon: 'fa-brands fa-whatsapp',
       order: 6,
     },
+    {
+      title: 'Landing Pages',
+      description: 'Landing pages de alta conversión con bot integrado.',
+      icon: 'fa-solid fa-window-maximize',
+      order: 7,
+    },
   ]
 
   for (const service of services) {
