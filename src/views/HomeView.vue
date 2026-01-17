@@ -164,7 +164,7 @@ onUnmounted(() => {
         <!-- Stats -->
         <div class="hero-stats">
           <div class="stat">
-            <span class="stat-value">+500</span>
+            <span class="stat-value">+200</span>
             <span class="stat-label">Procesos Automatizados</span>
           </div>
           <div class="stat">
