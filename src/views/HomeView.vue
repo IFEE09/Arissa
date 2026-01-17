@@ -93,7 +93,7 @@ const loadServices = async () => {
       {
         id: 7,
         title: 'Landing Pages',
-        description: 'Landing pages de alta conversión con bot integrado.',
+        description: 'Landing pages de alta conversión con bot de WhatsApp integrado.',
         icon: 'fa-solid fa-window-maximize',
       },
     ]
