@@ -2,17 +2,15 @@
 import { RouterLink } from 'vue-router'
 
 const footerLinks = {
-  categorias: [
-    { name: 'Inteligencia Artificial', path: '/categoria/ia' },
-    { name: 'Gaming', path: '/categoria/gaming' },
-    { name: 'Startups', path: '/categoria/startups' },
-    { name: 'Negocios', path: '/categoria/negocios' },
-    { name: 'Ciberseguridad', path: '/categoria/ciberseguridad' },
-    { name: 'Mundo', path: '/categoria/mundo' },
+  soluciones: [
+    { name: 'Captación Digital para Clínicas', path: '/#servicios' },
+    { name: 'Sistemas a Medida', path: '/#servicios' },
+    { name: 'Optimización e Integración', path: '/#servicios' },
   ],
   empresa: [
-    { name: 'Contacto', path: '/contacto' },
-    { name: 'Trabaja con Nosotros', path: '/empleos' },
+    { name: 'Proceso', path: '/#proceso' },
+    { name: 'Por qué Arissa', path: '/#diferenciadores' },
+    { name: 'Agendar Diagnóstico', path: '/#diagnostico' },
   ],
   legal: [
     { name: 'Privacidad', path: '/privacidad' },
@@ -30,16 +28,13 @@ const socialLinks = [
 <template>
   <footer class="footer">
     <div class="container">
-      <!-- Newsletter Section -->
+      <!-- CTA Section -->
       <div class="newsletter-section">
         <div class="newsletter-content">
-          <h3>Mantente al día con la tecnología</h3>
-          <p>Recibe las noticias más importantes directamente en tu correo.</p>
+          <h3>¿Tu operación tiene fricción?</h3>
+          <p>Agenda un diagnóstico. En 1–2 semanas tendrás un plan de implementación priorizado.</p>
         </div>
-        <form class="newsletter-form" @submit.prevent>
-          <input type="email" placeholder="tu@email.com" class="newsletter-input" />
-          <button type="submit" class="btn btn-primary">Suscribirse</button>
-        </form>
+        <a href="#diagnostico" class="btn btn-primary">Agendar Diagnóstico</a>
       </div>
 
       <!-- Footer Links -->
@@ -50,8 +45,8 @@ const socialLinks = [
             <span class="logo-text">ARISSA</span>
           </RouterLink>
           <p class="brand-tagline">
-            Consultora líder en automatización de procesos y desarrollo de software a medida para
-            empresas innovadoras.
+            Diseñamos y construimos sistemas digitales a la medida para clínicas y empresas
+            que necesitan captar mejor, operar con menos fricción y conectar sus herramientas.
           </p>
           <div class="social-links">
             <a
@@ -90,11 +85,11 @@ const socialLinks = [
           </div>
         </div>
 
-        <!-- Categories -->
+        <!-- Soluciones -->
         <div class="footer-column">
-          <h4>Categorías</h4>
+          <h4>Soluciones</h4>
           <ul>
-            <li v-for="link in footerLinks.categorias" :key="link.path">
+            <li v-for="link in footerLinks.soluciones" :key="link.name">
               <RouterLink :to="link.path">{{ link.name }}</RouterLink>
             </li>
           </ul>

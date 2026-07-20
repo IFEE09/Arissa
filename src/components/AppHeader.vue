@@ -10,19 +10,9 @@ const isScrolledPastHero = ref(false)
 // Enlaces principales (directos)
 const mainLinks = [
   { name: 'Inicio', path: '/' },
-  { name: 'Servicios', path: '/#servicios' },
-  { name: 'Casos de Éxito', path: '/casos-de-exito' },
-  { name: 'Nosotros', path: '/about' },
-]
-
-// Categorías de noticias (dropdown)
-const newsCategories = [
-  { name: 'IA', path: '/categoria/ia' },
-  { name: 'Gaming', path: '/categoria/gaming' },
-  { name: 'Startups', path: '/categoria/startups' },
-  { name: 'Negocios', path: '/categoria/negocios' },
-  { name: 'Ciberseguridad', path: '/categoria/ciberseguridad' },
-  { name: 'Mundo', path: '/categoria/mundo' },
+  { name: 'Soluciones', path: '/#servicios' },
+  { name: 'Proceso', path: '/#proceso' },
+  { name: 'Por qué Arissa', path: '/#diferenciadores' },
 ]
 
 const toggleMenu = () => {
@@ -87,63 +77,14 @@ onUnmounted(() => {
           {{ link.name }}
         </RouterLink>
 
-        <!-- Dropdown Noticias Tech -->
-        <div class="nav-dropdown" @mouseleave="closeDropdown">
-          <button
-            class="nav-link dropdown-toggle"
-            @click="toggleDropdown"
-            @mouseenter="isDropdownOpen = true"
-          >
-            Noticias Tech
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="12"
-              height="12"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="m6 9 6 6 6-6" />
-            </svg>
-          </button>
-          <div class="dropdown-menu" :class="{ open: isDropdownOpen }">
-            <RouterLink
-              v-for="cat in newsCategories"
-              :key="cat.path"
-              :to="cat.path"
-              class="dropdown-item"
-              @click="closeDropdown"
-            >
-              {{ cat.name }}
-            </RouterLink>
-          </div>
-        </div>
+
       </nav>
 
-      <!-- Search & Actions -->
+      <!-- Actions -->
       <div class="header-actions">
-        <button class="btn-icon" aria-label="Buscar">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <circle cx="11" cy="11" r="8"></circle>
-            <path d="m21 21-4.3-4.3"></path>
-          </svg>
-        </button>
-        <button class="btn btn-primary btn-subscribe">
-          <span>Suscribirse</span>
-        </button>
+        <a href="#diagnostico" class="btn btn-primary btn-subscribe">
+          <span>Agendar Diagnóstico</span>
+        </a>
       </div>
 
       <!-- Mobile Menu Button -->
@@ -164,19 +105,7 @@ onUnmounted(() => {
         {{ link.name }}
       </RouterLink>
 
-      <!-- Mobile: Noticias Tech como sección -->
-      <div class="mobile-section-title">Noticias Tech</div>
-      <RouterLink
-        v-for="cat in newsCategories"
-        :key="cat.path"
-        :to="cat.path"
-        class="nav-link-mobile nav-link-sub"
-        @click="isMenuOpen = false"
-      >
-        {{ cat.name }}
-      </RouterLink>
-
-      <button class="btn btn-primary" style="width: 100%; margin-top: 1rem">Suscribirse</button>
+      <a href="#diagnostico" class="btn btn-primary" style="width: 100%; margin-top: 1rem" @click="isMenuOpen = false">Agendar Diagnóstico</a>
     </nav>
   </header>
 </template>

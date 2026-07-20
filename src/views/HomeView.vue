@@ -1,21 +1,13 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import ParticleCloud from '@/components/ParticleCloud.vue'
-import { servicesAPI } from '@/services/api.js'
 
-// Services from API
-const services = ref([])
-const isLoadingServices = ref(true)
-
-// Typewriter effect
+// Typewriter effect — focused on the three core offers
 const typedText = ref('')
 const words = [
-  'Automatización',
-  'POS',
-  'Software a Medida',
-  'Integraciones',
-  'Inteligencia Artificial',
-  'Dashboards',
+  'Captación Digital',
+  'Sistemas a Medida',
+  'Integración de Procesos',
 ]
 let wordIndex = 0
 let charIndex = 0
@@ -35,7 +27,7 @@ const typeWriter = () => {
   let typeSpeed = isDeleting ? 50 : 100
 
   if (!isDeleting && charIndex === currentWord.length) {
-    typeSpeed = 2000
+    typeSpeed = 2500
     isDeleting = true
   } else if (isDeleting && charIndex === 0) {
     isDeleting = false
@@ -46,61 +38,90 @@ const typeWriter = () => {
   setTimeout(typeWriter, typeSpeed)
 }
 
-// Load services from API
-const loadServices = async () => {
-  try {
-    services.value = await servicesAPI.getAll()
-  } catch (error) {
-    console.error('Failed to load services:', error)
-    // Fallback to static data if API fails
-    services.value = [
-      {
-        id: 1,
-        title: 'Automatización',
-        description: 'Optimizamos tus flujos de trabajo eliminando tareas manuales.',
-        icon: 'fa-solid fa-bolt',
-      },
-      {
-        id: 2,
-        title: 'POS',
-        description: 'Puntos de venta para negocios personalizables.',
-        icon: 'fa-solid fa-cash-register',
-      },
-      {
-        id: 3,
-        title: 'Software a Medida',
-        description: 'Desarrollamos soluciones escalables adaptadas a tu negocio.',
-        icon: 'fa-solid fa-code',
-      },
-      {
-        id: 4,
-        title: 'Integraciones',
-        description: 'Conectamos tus herramientas para un ecosistema unificado.',
-        icon: 'fa-solid fa-link',
-      },
-      {
-        id: 5,
-        title: 'Bots Multitareas',
-        description: 'Bots inteligentes que automatizan procesos 24/7.',
-        icon: 'fa-solid fa-robot',
-      },
-      {
-        id: 6,
-        title: 'Bots para WhatsApp',
-        description: 'Chatbots inteligentes para atención al cliente.',
-        icon: 'fa-brands fa-whatsapp',
-      },
-      {
-        id: 7,
-        title: 'Landing Pages',
-        description: 'Landing pages de alta conversión con bot de WhatsApp integrado.',
-        icon: 'fa-solid fa-window-maximize',
-      },
-    ]
-  } finally {
-    isLoadingServices.value = false
-  }
-}
+// Three core offerings — static, no API dependency
+const offerings = [
+  {
+    id: 1,
+    title: 'Captación Digital para Clínicas',
+    description:
+      'Landing pages de alta conversión con agenda, seguimiento de prospectos y conexión directa a tu CRM. Más solicitudes calificadas, menos citas perdidas.',
+    icon: 'fa-solid fa-stethoscope',
+    features: ['Landing optimizada por especialidad', 'Agenda y confirmaciones automáticas', 'Seguimiento de prospectos', 'Tablero de resultados'],
+    tag: 'Desde $2,000 USD',
+  },
+  {
+    id: 2,
+    title: 'Sistemas Operativos a Medida',
+    description:
+      'Digitalizamos el flujo crítico de tu operación: cotizaciones, pedidos, aprobaciones, inventario, reportes. Menos retrabajo, mayor trazabilidad y control total.',
+    icon: 'fa-solid fa-code',
+    features: ['Dashboard con roles y permisos', 'Reglas de negocio y aprobaciones', 'Trazabilidad de procesos', 'Reportes en tiempo real'],
+    tag: 'Proyectos por fases',
+  },
+  {
+    id: 3,
+    title: 'Optimización e Integración',
+    description:
+      'Conectamos las herramientas que ya usas —CRM, correo, hojas de cálculo, ERP— para que la información fluya sin captura manual ni errores de copiado.',
+    icon: 'fa-solid fa-link',
+    features: ['Integración entre sistemas existentes', 'Eliminación de tareas manuales', 'Sincronización de datos', 'Alertas y notificaciones'],
+    tag: 'Sprint de 4–6 semanas',
+  },
+]
+
+// Process steps
+const steps = [
+  {
+    number: '01',
+    title: 'Diagnóstico',
+    description:
+      'Mapeamos tu proceso actual, identificamos fricciones y definimos el indicador de éxito. 1–2 semanas, pagado y acreditable al proyecto.',
+    icon: 'fa-solid fa-magnifying-glass-chart',
+  },
+  {
+    number: '02',
+    title: 'Sprint de Automatización',
+    description:
+      'Implementamos un flujo crítico conectado y probado en 4–6 semanas. Tu equipo empieza a usarlo desde la primera semana.',
+    icon: 'fa-solid fa-bolt',
+  },
+  {
+    number: '03',
+    title: 'Sistema a Medida',
+    description:
+      'Construimos el módulo completo con roles, reglas, trazabilidad e integraciones. Entrega por fases con demostración semanal.',
+    icon: 'fa-solid fa-layer-group',
+  },
+  {
+    number: '04',
+    title: 'Continuidad',
+    description:
+      'Soporte, monitoreo, mejoras priorizadas y evolución. Tu sistema sigue mejorando sin empezar de cero cada vez.',
+    icon: 'fa-solid fa-infinity',
+  },
+]
+
+// UI/UX differentiator section
+const differentiators = [
+  {
+    title: 'Diseño que tu equipo puede usar',
+    description:
+      'No entregamos software que nadie quiere abrir. Cada interfaz se diseña para que el equipo la adopte desde el primer día, sin manual de 200 páginas.',
+    icon: 'fa-solid fa-pen-ruler',
+  },
+  {
+    title: 'Arquitectura que crece contigo',
+    description:
+      'Construimos sobre stack moderno —Vue, Node, PostgreSQL— con código limpio, documentado y mantenible. No te encerramos: tú eres dueño de tu sistema.',
+    icon: 'fa-solid fa-cubes',
+  },
+  {
+    title: 'Resultados medibles',
+    description:
+      'Cada proyecto parte de una línea base: tiempo, error, volumen o atraso. Al cierre comparamos antes y después. Si no hay mejora, no terminó.',
+    icon: 'fa-solid fa-chart-line',
+  },
+]
 
 // Dynamic Particle Count
 const particleCount = ref(400)
@@ -110,12 +131,10 @@ const updateParticleCount = () => {
 
 onMounted(() => {
   setTimeout(typeWriter, 1000)
-  loadServices()
   updateParticleCount()
   window.addEventListener('resize', updateParticleCount)
 })
 
-import { onUnmounted } from 'vue'
 onUnmounted(() => {
   window.removeEventListener('resize', updateParticleCount)
 })
@@ -127,12 +146,12 @@ onUnmounted(() => {
     <section class="hero">
       <div class="container">
         <div class="hero-content animate-fadeIn">
-          <span class="hero-badge badge badge-accent">Soluciones Empresariales</span>
+          <span class="hero-badge badge badge-accent">Software Empresarial a la Medida</span>
           <h1>
             Arissa
             <br />
             <span class="hero-tagline">
-              Expertos en
+              Diseñamos y construimos
               <span class="text-gradient typewriter-container">
                 <span class="typewriter-text">{{ typedText }}</span>
                 <span class="typewriter-cursor">|</span>
@@ -140,136 +159,138 @@ onUnmounted(() => {
             </span>
           </h1>
 
-          <!-- Particle Cloud Component (Moved inside content for better flow control) -->
           <div class="particle-wrapper">
             <ParticleCloud :count="particleCount" />
           </div>
 
           <p class="hero-subtitle">
-            Transformamos tu empresa con software a la medida y automatizaciones inteligentes.
-            Elimina tareas repetitivas, optimiza procesos y escala tu negocio con tecnología de
-            vanguardia.
+            Sistemas digitales a la medida para clínicas y empresas que necesitan captar mejor,
+            operar con menos fricción y conectar sus herramientas. Diseño que tu equipo adopta,
+            arquitectura que crece contigo.
           </p>
           <div class="hero-actions">
-            <button class="btn btn-primary btn-lg">
-              Agendar Consulta
+            <a href="#diagnostico" class="btn btn-primary btn-lg">
+              Agendar Diagnóstico
               <i class="fa-solid fa-calendar"></i>
-            </button>
-            <router-link to="/casos-de-exito" class="btn btn-outline"
-              >Ver Casos de Éxito</router-link
-            >
+            </a>
+            <a href="#servicios" class="btn btn-outline btn-lg">Ver Soluciones</a>
           </div>
         </div>
 
         <!-- Stats -->
         <div class="hero-stats">
           <div class="stat">
-            <span class="stat-value">+200</span>
-            <span class="stat-label">Procesos Automatizados</span>
+            <span class="stat-value">3</span>
+            <span class="stat-label">Ofertas Enfocadas</span>
           </div>
           <div class="stat">
-            <span class="stat-value">98%</span>
-            <span class="stat-label">Eficiencia Operativa</span>
+            <span class="stat-value">$2K+</span>
+            <span class="stat-label">Ticket Mínimo</span>
           </div>
           <div class="stat">
-            <span class="stat-value">10x</span>
-            <span class="stat-label">ROI Promedio</span>
+            <span class="stat-value">4–6</span>
+            <span class="stat-label">Semanas por Sprint</span>
           </div>
         </div>
       </div>
 
-      <!-- Decorative elements -->
       <div class="hero-bg-gradient"></div>
       <div class="hero-bg-pattern"></div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Offerings Section -->
     <section id="servicios" class="section-services">
       <div class="container">
         <div class="section-header">
-          <h2><i class="fa-solid fa-rocket"></i> Nuestros Servicios</h2>
+          <h2><i class="fa-solid fa-rocket"></i> Lo que hacemos</h2>
         </div>
 
-        <!-- Loading State -->
-        <div v-if="isLoadingServices" class="services-loading">
-          <i class="fa-solid fa-spinner fa-spin"></i>
-          <p>Cargando servicios...</p>
-        </div>
-
-        <!-- Services Grid -->
-        <div v-else class="services-grid">
-          <div v-for="service in services" :key="service.id" class="service-card">
-            <div class="service-icon">
-              <i :class="service.icon"></i>
+        <div class="offerings-grid">
+          <div v-for="offering in offerings" :key="offering.id" class="offering-card">
+            <div class="offering-header">
+              <div class="offering-icon">
+                <i :class="offering.icon"></i>
+              </div>
+              <span class="offering-tag">{{ offering.tag }}</span>
             </div>
-            <h3>{{ service.title }}</h3>
-            <p>{{ service.description }}</p>
-            <span class="service-cta">Conocer más <i class="fa-solid fa-arrow-right"></i></span>
+            <h3>{{ offering.title }}</h3>
+            <p>{{ offering.description }}</p>
+            <ul class="offering-features">
+              <li v-for="feature in offering.features" :key="feature">
+                <i class="fa-solid fa-check"></i>
+                {{ feature }}
+              </li>
+            </ul>
+            <a href="#diagnostico" class="offering-cta">
+              Conocer más <i class="fa-solid fa-arrow-right"></i>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Success Stories Section - Maintenance -->
-    <section class="section-success">
+    <!-- Process Section -->
+    <section id="proceso" class="section-process">
       <div class="container">
         <div class="section-header">
-          <h2><i class="fa-solid fa-trophy"></i> Casos de Éxito</h2>
+          <h2><i class="fa-solid fa-route"></i> Cómo trabajamos</h2>
         </div>
-        <div class="maintenance-card">
-          <div class="maintenance-icon">
-            <i class="fa-solid fa-gear fa-spin"></i>
+
+        <div class="process-grid">
+          <div v-for="step in steps" :key="step.number" class="process-card">
+            <div class="process-number">{{ step.number }}</div>
+            <div class="process-icon">
+              <i :class="step.icon"></i>
+            </div>
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.description }}</p>
           </div>
-          <h3>Sección en Mantenimiento</h3>
-          <p>Estamos preparando algo increíble para ti. Próximamente.</p>
         </div>
       </div>
     </section>
 
-    <!-- Featured Article - Maintenance -->
-    <section class="section-featured">
+    <!-- Differentiators Section -->
+    <section id="diferenciadores" class="section-differentiators">
       <div class="container">
         <div class="section-header">
-          <h2><i class="fa-solid fa-fire"></i> Destacado</h2>
+          <h2><i class="fa-solid fa-gem"></i> Por qué Arissa</h2>
         </div>
-        <div class="maintenance-card">
-          <div class="maintenance-icon">
-            <i class="fa-solid fa-wand-magic-sparkles fa-bounce"></i>
+
+        <div class="differentiators-grid">
+          <div v-for="item in differentiators" :key="item.title" class="differentiator-card">
+            <div class="differentiator-icon">
+              <i :class="item.icon"></i>
+            </div>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
           </div>
-          <h3>Contenido en Desarrollo</h3>
-          <p>Nuestro equipo está trabajando en artículos exclusivos.</p>
         </div>
       </div>
     </section>
 
-    <!-- Latest News - Maintenance -->
-    <section class="section-latest">
+    <!-- CTA: Diagnóstico -->
+    <section id="diagnostico" class="section-cta">
       <div class="container">
-        <div class="section-header">
-          <h2><i class="fa-solid fa-newspaper"></i> Últimas Noticias</h2>
-        </div>
-        <div class="maintenance-card">
-          <div class="maintenance-icon">
-            <i class="fa-solid fa-feather-pointed fa-shake"></i>
+        <div class="cta-card">
+          <div class="cta-content">
+            <span class="cta-badge badge badge-accent">Primer paso</span>
+            <h2>Agenda tu diagnóstico de operación</h2>
+            <p>
+              En 1–2 semanas mapeamos tu proceso actual, identificamos las fricciones que más te
+              cuestan y te entregamos un plan de implementación priorizado. El diagnóstico es pagado
+              y se acredita al proyecto cuando decidas avanzar.
+            </p>
+            <div class="cta-actions">
+              <a href="mailto:hola@arissa.dev?subject=Diagnóstico%20de%20operación" class="btn btn-primary btn-lg">
+                Solicitar Diagnóstico
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a href="#servicios" class="btn btn-outline btn-lg">Ver Soluciones Primero</a>
+            </div>
           </div>
-          <h3>Blog Próximamente</h3>
-          <p>Nuestro blog de tecnología y automatización está en camino.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Trending - Maintenance -->
-    <section class="section-trending">
-      <div class="container">
-        <div class="section-header" style="border-bottom: none">
-          <h2><i class="fa-solid fa-chart-line"></i> Tendencias</h2>
-        </div>
-        <div class="maintenance-card">
-          <div class="maintenance-icon">
-            <i class="fa-solid fa-chart-simple fa-fade"></i>
+          <div class="cta-visual">
+            <ParticleCloud :count="200" />
           </div>
-          <h3>Análisis en Proceso</h3>
-          <p>Estamos recopilando las tendencias más relevantes del sector.</p>
         </div>
       </div>
     </section>
@@ -325,19 +346,19 @@ onUnmounted(() => {
 .hero-subtitle {
   font-family: 'Manrope', sans-serif;
   font-size: 1.25rem;
-  color: #ffffff; /* pure white for maximum legibility */
+  color: #ffffff;
   line-height: 1.8;
   margin-bottom: 2.5rem;
   max-width: 600px;
   font-weight: 300;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* subtle shadow to pop more */
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Typewriter */
 .typewriter-container {
   display: inline-block;
   color: var(--color-action);
-  min-width: 200px;
+  min-width: 280px;
   font-family: 'Space Grotesk', monospace;
 }
 
@@ -387,7 +408,7 @@ onUnmounted(() => {
 
 @media (max-width: 767px) {
   .hero-stats {
-    grid-template-columns: repeat(3, 1fr); /* Keep 3 columns but refine spacing */
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     text-align: center;
   }
@@ -450,11 +471,11 @@ onUnmounted(() => {
   z-index: 0;
 }
 
-/* Particle Wrapper - Desktop Layout (Alone on the right) */
+/* Particle Wrapper */
 .particle-wrapper {
   position: absolute;
   top: 50%;
-  left: 110%; /* Starts outside the text container */
+  left: 110%;
   transform: translateY(-50%);
   width: 50vw;
   height: 80vh;
@@ -481,7 +502,6 @@ onUnmounted(() => {
     max-width: 100%;
   }
 
-  /* Particles strictly BELOW "Expertos en..." and ABOVE the subtitle in mobile */
   .particle-wrapper {
     position: relative;
     top: auto;
@@ -489,7 +509,7 @@ onUnmounted(() => {
     right: auto;
     transform: none;
     width: 100%;
-    height: 320px; /* Dedicated space */
+    height: 320px;
     margin: 1rem 0;
     opacity: 1;
   }
@@ -531,20 +551,20 @@ onUnmounted(() => {
   margin-bottom: 0;
 }
 
-/* Services Section */
+/* Offerings Section */
 .section-services {
   padding: 4rem 0;
   background: var(--color-surface);
   border-bottom: 1px solid var(--color-border-subtle);
 }
 
-.services-grid {
+.offerings-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
 }
 
-.service-card {
+.offering-card {
   background: rgba(31, 40, 51, 0.4);
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-lg);
@@ -555,10 +575,9 @@ onUnmounted(() => {
   align-items: flex-start;
   position: relative;
   overflow: hidden;
-  cursor: pointer;
 }
 
-.service-card::before {
+.offering-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -570,7 +589,7 @@ onUnmounted(() => {
   transition: opacity var(--transition-fast);
 }
 
-.service-card:hover {
+.offering-card:hover {
   background: rgba(31, 40, 51, 0.7);
   border-color: var(--color-action);
   transform: translateY(-5px) scale(1.01);
@@ -579,11 +598,19 @@ onUnmounted(() => {
     0 0 20px rgba(102, 252, 241, 0.05);
 }
 
-.service-card:hover::before {
+.offering-card:hover::before {
   opacity: 1;
 }
 
-.service-icon {
+.offering-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.offering-icon {
   width: 60px;
   height: 60px;
   display: flex;
@@ -592,19 +619,32 @@ onUnmounted(() => {
   background: linear-gradient(135deg, rgba(102, 252, 241, 0.1), rgba(9, 52, 122, 0.15));
   border: 1px solid rgba(102, 252, 241, 0.1);
   border-radius: var(--radius-md);
-  margin-bottom: 1.5rem;
   font-size: 1.5rem;
   color: var(--color-action);
   transition: all var(--transition-smooth);
 }
 
-.service-card:hover .service-icon {
+.offering-card:hover .offering-icon {
   background: linear-gradient(135deg, rgba(102, 252, 241, 0.25), rgba(9, 52, 122, 0.3));
   transform: scale(1.1);
   box-shadow: 0 0 20px rgba(102, 252, 241, 0.3);
 }
 
-.service-card h3 {
+.offering-tag {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-action);
+  background: rgba(102, 252, 241, 0.08);
+  border: 1px solid rgba(102, 252, 241, 0.2);
+  border-radius: 99px;
+  padding: 0.3rem 0.8rem;
+  white-space: nowrap;
+}
+
+.offering-card h3 {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
@@ -614,15 +654,42 @@ onUnmounted(() => {
   letter-spacing: 0.05em;
 }
 
-.service-card p {
+.offering-card p {
   color: var(--color-text-muted);
   line-height: 1.7;
   font-size: 0.95rem;
-  flex: 1;
   margin-bottom: 1.5rem;
 }
 
-.service-cta {
+.offering-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  width: 100%;
+}
+
+.offering-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(44, 62, 80, 0.3);
+}
+
+.offering-features li:last-child {
+  border-bottom: none;
+}
+
+.offering-features li i {
+  color: var(--color-action);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.offering-cta {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -632,78 +699,238 @@ onUnmounted(() => {
   color: var(--color-action);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  opacity: 0;
-  transform: translateY(10px);
+  text-decoration: none;
   transition: all var(--transition-smooth);
+  margin-top: auto;
 }
 
-.service-card:hover .service-cta {
-  opacity: 1;
-  transform: translateY(0);
+.offering-card:hover .offering-cta {
+  text-shadow: 0 0 8px var(--color-action-glow);
 }
 
-.service-card:hover .service-cta i {
+.offering-card:hover .offering-cta i {
   transform: translateX(5px);
 }
 
-/* Other Sections */
-.section-success,
-.section-featured,
-.section-latest,
-.section-trending {
+/* Process Section */
+.section-process {
   padding: 4rem 0;
   background: var(--color-background);
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 
-/* Maintenance Card */
-.maintenance-card {
+.process-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.process-card {
   background: rgba(31, 40, 51, 0.3);
-  border: 1px dashed var(--color-border);
+  border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-lg);
-  padding: 4rem 2rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-smooth);
 }
 
-.maintenance-icon {
-  font-size: 3rem;
-  color: var(--color-action);
-  margin-bottom: 1rem;
+.process-card:hover {
+  border-color: var(--color-action);
+  background: rgba(31, 40, 51, 0.5);
+  transform: translateY(-3px);
 }
 
-.maintenance-card h3 {
+.process-number {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.5rem;
+  font-size: 3rem;
   font-weight: 700;
+  color: rgba(102, 252, 241, 0.15);
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  line-height: 1;
+}
+
+.process-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(102, 252, 241, 0.08), rgba(9, 52, 122, 0.12));
+  border: 1px solid rgba(102, 252, 241, 0.1);
+  border-radius: var(--radius-md);
+  font-size: 1.25rem;
+  color: var(--color-action);
+  margin-bottom: 1.5rem;
+}
+
+.process-card h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
   color: var(--color-text-main);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-.maintenance-card p {
+.process-card p {
   color: var(--color-text-muted);
-  font-size: 1rem;
-  max-width: 400px;
+  line-height: 1.7;
+  font-size: 0.9rem;
+  margin-bottom: 0;
 }
 
-/* Responsive */
-@media (min-width: 480px) {
-  .hero h1 {
-    font-size: 3rem;
+/* Differentiators Section */
+.section-differentiators {
+  padding: 4rem 0;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.differentiators-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.differentiator-card {
+  background: rgba(11, 12, 16, 0.4);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  transition: all var(--transition-smooth);
+}
+
+.differentiator-card:hover {
+  border-color: var(--color-action);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.differentiator-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(102, 252, 241, 0.08), rgba(9, 52, 122, 0.12));
+  border: 1px solid rgba(102, 252, 241, 0.1);
+  border-radius: var(--radius-md);
+  font-size: 1.25rem;
+  color: var(--color-action);
+  margin-bottom: 1.5rem;
+}
+
+.differentiator-card h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--color-text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.differentiator-card p {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+/* CTA Section */
+.section-cta {
+  padding: 4rem 0;
+  background: var(--color-background);
+}
+
+.cta-card {
+  background: linear-gradient(135deg, rgba(31, 40, 51, 0.6), rgba(9, 52, 122, 0.15));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-content {
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-badge {
+  margin-bottom: 1.5rem;
+}
+
+.cta-content h2 {
+  margin-bottom: 1rem;
+}
+
+.cta-content p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 500px;
+  margin-bottom: 2rem;
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.cta-visual {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+@media (max-width: 1023px) {
+  .cta-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
   }
-  .stat-value {
-    font-size: 2.25rem;
+
+  .cta-content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-actions {
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .cta-visual {
+    display: none;
   }
 }
 
+/* Responsive Grids */
 @media (min-width: 640px) {
   .hero h1 {
     font-size: 4rem;
   }
-  .services-grid {
+  .offerings-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .differentiators-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -715,8 +942,14 @@ onUnmounted(() => {
   .hero h1 {
     font-size: 5rem;
   }
-  .services-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns for better balance with 5 items */
+  .offerings-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .process-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .differentiators-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
   .hero-stats {
     gap: 4rem;
