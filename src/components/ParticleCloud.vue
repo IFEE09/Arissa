@@ -95,8 +95,8 @@ const particles = computed(() => {
   height: 60%;
   background: radial-gradient(
     circle,
-    rgba(102, 252, 241, 0.2) 0%,
-    rgba(9, 52, 122, 0.1) 50%,
+    rgba(13, 92, 90, 0.25) 0%,
+    rgba(26, 77, 143, 0.12) 50%,
     transparent 70%
   );
   filter: blur(40px);
@@ -118,7 +118,7 @@ const particles = computed(() => {
   filter: blur(10px);
   background: radial-gradient(
     circle,
-    rgba(102, 252, 241, 0.4) 0%,
+    rgba(13, 92, 90, 0.4) 0%,
     /* More intense for small size */ transparent 70%
   );
 }

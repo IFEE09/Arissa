@@ -53,7 +53,7 @@ defineProps({
 
 .news-card:hover {
   transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 10px 30px rgba(102, 252, 241, 0.1);
+  box-shadow: 0 10px 30px rgba(13, 92, 90, 0.15);
   border-color: var(--color-action);
 }
 

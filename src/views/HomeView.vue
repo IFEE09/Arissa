@@ -318,9 +318,9 @@ onUnmounted(() => {
 
 .hero-badge {
   margin-bottom: 2rem;
-  background: rgba(9, 52, 122, 0.2);
-  color: #a0c4ff;
-  border: 1px solid rgba(9, 52, 122, 0.4);
+  background: rgba(13, 92, 90, 0.15);
+  color: var(--color-action);
+  border: 1px solid rgba(13, 92, 90, 0.4);
 }
 
 .hero h1 {
@@ -465,7 +465,7 @@ onUnmounted(() => {
   right: -10%;
   width: 50%;
   height: 80%;
-  background: radial-gradient(circle, rgba(9, 52, 122, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(26, 77, 143, 0.15) 0%, transparent 70%);
   filter: blur(60px);
   pointer-events: none;
   z-index: 0;
@@ -565,7 +565,7 @@ onUnmounted(() => {
 }
 
 .offering-card {
-  background: rgba(31, 40, 51, 0.4);
+  background: rgba(26, 26, 46, 0.4);
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-lg);
   padding: 2.5rem 2rem;
@@ -590,12 +590,12 @@ onUnmounted(() => {
 }
 
 .offering-card:hover {
-  background: rgba(31, 40, 51, 0.7);
+  background: rgba(26, 26, 46, 0.7);
   border-color: var(--color-action);
   transform: translateY(-5px) scale(1.01);
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.4),
-    0 0 20px rgba(102, 252, 241, 0.05);
+    0 0 20px rgba(13, 92, 90, 0.05);
 }
 
 .offering-card:hover::before {
@@ -616,8 +616,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(102, 252, 241, 0.1), rgba(9, 52, 122, 0.15));
-  border: 1px solid rgba(102, 252, 241, 0.1);
+  background: linear-gradient(135deg, rgba(13, 92, 90, 0.15), rgba(26, 77, 143, 0.15));
+  border: 1px solid rgba(13, 92, 90, 0.2);
   border-radius: var(--radius-md);
   font-size: 1.5rem;
   color: var(--color-action);
@@ -625,9 +625,9 @@ onUnmounted(() => {
 }
 
 .offering-card:hover .offering-icon {
-  background: linear-gradient(135deg, rgba(102, 252, 241, 0.25), rgba(9, 52, 122, 0.3));
+  background: linear-gradient(135deg, rgba(13, 92, 90, 0.3), rgba(26, 77, 143, 0.25));
   transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(102, 252, 241, 0.3);
+  box-shadow: 0 0 20px rgba(13, 92, 90, 0.3);
 }
 
 .offering-tag {
@@ -637,8 +637,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-action);
-  background: rgba(102, 252, 241, 0.08);
-  border: 1px solid rgba(102, 252, 241, 0.2);
+  background: rgba(13, 92, 90, 0.12);
+  border: 1px solid rgba(13, 92, 90, 0.3);
   border-radius: 99px;
   padding: 0.3rem 0.8rem;
   white-space: nowrap;
@@ -676,7 +676,7 @@ onUnmounted(() => {
   font-size: 0.9rem;
   color: var(--color-text-muted);
   padding: 0.4rem 0;
-  border-bottom: 1px solid rgba(44, 62, 80, 0.3);
+  border-bottom: 1px solid rgba(42, 42, 74, 0.3);
 }
 
 .offering-features li:last-child {
@@ -726,7 +726,7 @@ onUnmounted(() => {
 }
 
 .process-card {
-  background: rgba(31, 40, 51, 0.3);
+  background: rgba(26, 26, 46, 0.3);
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-lg);
   padding: 2.5rem 2rem;
@@ -737,7 +737,7 @@ onUnmounted(() => {
 
 .process-card:hover {
   border-color: var(--color-action);
-  background: rgba(31, 40, 51, 0.5);
+  background: rgba(26, 26, 46, 0.5);
   transform: translateY(-3px);
 }
 
@@ -745,7 +745,7 @@ onUnmounted(() => {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 3rem;
   font-weight: 700;
-  color: rgba(102, 252, 241, 0.15);
+  color: rgba(13, 92, 90, 0.2);
   position: absolute;
   top: 0.5rem;
   right: 1rem;
@@ -758,8 +758,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(102, 252, 241, 0.08), rgba(9, 52, 122, 0.12));
-  border: 1px solid rgba(102, 252, 241, 0.1);
+  background: linear-gradient(135deg, rgba(13, 92, 90, 0.12), rgba(26, 77, 143, 0.12));
+  border: 1px solid rgba(13, 92, 90, 0.2);
   border-radius: var(--radius-md);
   font-size: 1.25rem;
   color: var(--color-action);
@@ -797,7 +797,7 @@ onUnmounted(() => {
 }
 
 .differentiator-card {
-  background: rgba(11, 12, 16, 0.4);
+  background: rgba(11, 12, 16, 0.5);
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-lg);
   padding: 2.5rem 2rem;
@@ -816,8 +816,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(102, 252, 241, 0.08), rgba(9, 52, 122, 0.12));
-  border: 1px solid rgba(102, 252, 241, 0.1);
+  background: linear-gradient(135deg, rgba(13, 92, 90, 0.12), rgba(26, 77, 143, 0.12));
+  border: 1px solid rgba(13, 92, 90, 0.2);
   border-radius: var(--radius-md);
   font-size: 1.25rem;
   color: var(--color-action);
@@ -848,7 +848,7 @@ onUnmounted(() => {
 }
 
 .cta-card {
-  background: linear-gradient(135deg, rgba(31, 40, 51, 0.6), rgba(9, 52, 122, 0.15));
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.6), rgba(26, 77, 143, 0.15));
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: 3rem 2rem;

@@ -204,8 +204,8 @@ const socialLinks = [
 
 .newsletter-input:focus {
   border-color: var(--color-action);
-  background: rgba(102, 252, 241, 0.05);
-  box-shadow: 0 0 15px rgba(102, 252, 241, 0.1);
+  background: rgba(13, 92, 90, 0.08);
+  box-shadow: 0 0 15px rgba(13, 92, 90, 0.15);
 }
 
 /* Footer Grid */
@@ -261,7 +261,7 @@ const socialLinks = [
 }
 
 .social-link:hover {
-  background: rgba(102, 252, 241, 0.1);
+  background: rgba(13, 92, 90, 0.15);
   border-color: var(--color-action);
   color: var(--color-action);
   transform: translateY(-2px);

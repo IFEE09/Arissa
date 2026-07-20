@@ -57,7 +57,7 @@ onMounted(() => {
   border: 1px solid var(--color-action);
   box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.5),
-    0 0 20px rgba(102, 252, 241, 0.1);
+    0 0 20px rgba(13, 92, 90, 0.15);
 }
 
 .cookie-content {

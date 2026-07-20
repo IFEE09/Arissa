@@ -107,7 +107,7 @@ defineProps({
   transform: translate(-50%, -50%);
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(102, 252, 241, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(13, 92, 90, 0.15) 0%, transparent 70%);
   filter: blur(60px);
   z-index: 0;
 }
@@ -119,12 +119,12 @@ defineProps({
   width: 100%;
   height: 100%;
   background-image:
-    radial-gradient(2px 2px at 20% 30%, rgba(102, 252, 241, 0.3), transparent),
-    radial-gradient(2px 2px at 40% 70%, rgba(102, 252, 241, 0.2), transparent),
-    radial-gradient(2px 2px at 60% 20%, rgba(102, 252, 241, 0.3), transparent),
-    radial-gradient(2px 2px at 80% 50%, rgba(102, 252, 241, 0.2), transparent),
-    radial-gradient(2px 2px at 10% 80%, rgba(102, 252, 241, 0.3), transparent),
-    radial-gradient(2px 2px at 90% 10%, rgba(102, 252, 241, 0.2), transparent);
+    radial-gradient(2px 2px at 20% 30%, rgba(13, 92, 90, 0.35), transparent),
+    radial-gradient(2px 2px at 40% 70%, rgba(13, 92, 90, 0.25), transparent),
+    radial-gradient(2px 2px at 60% 20%, rgba(13, 92, 90, 0.35), transparent),
+    radial-gradient(2px 2px at 80% 50%, rgba(13, 92, 90, 0.25), transparent),
+    radial-gradient(2px 2px at 10% 80%, rgba(13, 92, 90, 0.35), transparent),
+    radial-gradient(2px 2px at 90% 10%, rgba(13, 92, 90, 0.25), transparent);
   animation: twinkle 4s ease-in-out infinite;
   z-index: 0;
 }

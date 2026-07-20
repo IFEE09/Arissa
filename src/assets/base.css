@@ -6,29 +6,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* 1. PALETA DE COLORES (Arissa Premium) */
+  /* 1. PALETA DE COLORES (Arissa Brand v1.0) */
 
   /* Canvas & Surfaces */
   --color-background: #0b0c10; /* Deep Space Canvas */
-  --color-surface: #1f2833; /* Module/Card Surface */
-  --color-surface-hover: #26303e;
+  --color-surface: #1a1a2e; /* Dark Charcoal Surface */
+  --color-surface-hover: #232342;
 
   /* Brand Identity */
-  --color-brand: #09347a; /* Sarissa Blue (Deep & Intellectual) */
-  --color-brand-glow: rgba(9, 52, 122, 0.5);
+  --color-brand: #1a4d8f; /* Steel Blue */
+  --color-brand-glow: rgba(26, 77, 143, 0.5);
 
   /* Typography */
-  --color-text-main: #e6e6e6; /* Titanium White */
+  --color-text-main: #e8e8e8; /* Titanium White */
   --color-text-muted: #8a9bb0; /* Cool Gray */
 
-  /* Action / The Spark */
-  --color-action: #66fcf1; /* Electric Cyan */
-  --color-action-hover: #45a29e;
-  --color-action-glow: rgba(102, 252, 241, 0.4);
+  /* Action / Deep Teal */
+  --color-action: #0d5c5a; /* Deep Teal — primary brand color */
+  --color-action-hover: #0a4a48;
+  --color-action-glow: rgba(13, 92, 90, 0.4);
+
+  /* Accent Gold — use sparingly */
+  --color-accent-gold: #c4a35a;
+  --color-accent-glow: rgba(196, 163, 90, 0.3);
 
   /* Structural */
-  --color-border: #2c3e50; /* Structural Steel */
-  --color-border-subtle: rgba(44, 62, 80, 0.5);
+  --color-border: #2a2a4a; /* Structural Border */
+  --color-border-subtle: rgba(42, 42, 74, 0.5);
 
   /* Glassmorphism */
   --glass-bg: rgba(11, 12, 16, 0.7);
@@ -137,16 +141,17 @@ a:hover {
 }
 
 .btn-primary {
-  background: transparent;
+  background: var(--color-action);
   border: 1px solid var(--color-action);
-  color: var(--color-action);
-  box-shadow: 0 0 10px rgba(102, 252, 241, 0.1);
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(13, 92, 90, 0.15);
   position: relative;
   overflow: hidden;
 }
 
 .btn-primary:hover {
-  background: rgba(102, 252, 241, 0.1);
+  background: var(--color-action-hover);
+  border-color: var(--color-action-hover);
   box-shadow: 0 0 20px var(--color-action-glow);
   transform: translateY(-1px);
 }
@@ -205,7 +210,7 @@ a:hover {
 
 .card:hover {
   border-color: var(--color-action);
-  box-shadow: 0 0 20px rgba(9, 52, 122, 0.2);
+  box-shadow: 0 0 20px rgba(13, 92, 90, 0.2);
   transform: translateY(-4px) scale(1.01);
 }
 
@@ -220,9 +225,9 @@ a:hover {
 }
 
 .badge-accent {
-  background: rgba(102, 252, 241, 0.1);
+  background: rgba(13, 92, 90, 0.15);
   color: var(--color-action);
-  border: 1px solid rgba(102, 252, 241, 0.3);
+  border: 1px solid rgba(13, 92, 90, 0.4);
 }
 
 /* Animations */

@@ -157,7 +157,7 @@ onUnmounted(() => {
   width: 50px;
   height: 50px;
   position: relative;
-  background: radial-gradient(circle, rgba(102, 252, 241, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(13, 92, 90, 0.15) 0%, transparent 70%);
   border-radius: 50%;
 }
 
@@ -436,7 +436,7 @@ onUnmounted(() => {
 }
 
 .dropdown-item:hover {
-  background: rgba(102, 252, 241, 0.1);
+  background: rgba(13, 92, 90, 0.15);
   color: var(--color-action);
 }
 
