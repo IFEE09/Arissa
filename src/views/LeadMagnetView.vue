@@ -166,9 +166,12 @@ function openFile() {
 .gate,
 .unlocked {
   padding: 1.75rem;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
-  background: rgba(13, 92, 90, 0.08);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: var(--glass-shadow);
 }
 .gate h2,
 .unlocked h2 {

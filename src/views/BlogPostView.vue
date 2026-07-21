@@ -160,8 +160,11 @@ useSeo(() => {
 .cta {
   padding: 2rem;
   border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border);
-  background: rgba(13, 92, 90, 0.08);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: var(--glass-shadow);
 }
 
 .cta-actions {

@@ -35,13 +35,16 @@ const title = computed(() =>
   gap: 0.5rem;
   padding: 0.75rem 1rem;
   border-radius: 999px;
-  background: #0d5c5a;
+  background: rgba(13, 92, 90, 0.72);
+  backdrop-filter: blur(12px) saturate(1.3);
+  -webkit-backdrop-filter: blur(12px) saturate(1.3);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: #fff;
   text-decoration: none;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.85rem;
   letter-spacing: 0.04em;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  box-shadow: var(--glass-shadow);
   transition: transform 0.2s ease, background 0.2s ease;
 }
 .wa-fab:hover {

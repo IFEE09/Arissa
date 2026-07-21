@@ -204,10 +204,12 @@ useSeo(() => {
 
 .seo-hero {
   padding: 4rem 0 3rem;
-  border-bottom: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--glass-border);
   background:
     radial-gradient(ellipse at top right, rgba(13, 92, 90, 0.18), transparent 55%),
-    var(--color-background);
+    var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .seo-eyebrow {
@@ -282,11 +284,13 @@ useSeo(() => {
 }
 
 .faq-item {
-  border: 1px solid var(--color-border-subtle);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   padding: 1rem 1.25rem;
   margin-bottom: 0.75rem;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .faq-item summary {
@@ -303,8 +307,11 @@ useSeo(() => {
 .seo-cta {
   padding: 2rem;
   border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border);
-  background: rgba(13, 92, 90, 0.08);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: var(--glass-shadow);
 }
 
 .seo-cta h2 {

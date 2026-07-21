@@ -129,11 +129,13 @@ const socialLinks = [
 
 <style scoped>
 .footer {
-  background: var(--color-surface);
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
   color: var(--color-text-main);
-  padding: 3rem 0 2rem; /* Mobile optimized */
+  padding: 3rem 0 2rem;
   margin-top: auto;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--glass-border);
 }
 
 @media (min-width: 1024px) {
@@ -148,8 +150,11 @@ const socialLinks = [
   flex-direction: column;
   gap: 2rem;
   padding: 3rem;
-  background: rgba(11, 12, 16, 0.5);
-  border: 1px solid var(--color-border-subtle);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(1.25);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.25);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
   border-radius: var(--radius-lg);
   margin-bottom: 5rem;
   position: relative;

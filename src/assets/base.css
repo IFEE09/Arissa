@@ -35,8 +35,11 @@
   --color-border-subtle: rgba(42, 42, 74, 0.5);
 
   /* Glassmorphism */
-  --glass-bg: rgba(11, 12, 16, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-bg: rgba(26, 26, 46, 0.42);
+  --glass-bg-strong: rgba(11, 12, 16, 0.62);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --glass-blur: 18px;
+  --glass-shadow: 0 10px 40px rgba(0, 0, 0, 0.28);
 
   /* Shadows & Glows */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -72,6 +75,11 @@ html {
 
 body {
   background-color: var(--color-background);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(13, 92, 90, 0.16), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 90% 5%, rgba(26, 77, 143, 0.14), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(13, 92, 90, 0.08), transparent 55%);
+  background-attachment: fixed;
   color: var(--color-text-main);
   font-family: 'Manrope', sans-serif;
   line-height: 1.6;
@@ -157,16 +165,18 @@ a:hover {
 }
 
 .btn-outline {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   color: #ffffff;
 }
 
 .btn-outline:hover {
-  border-color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.45);
   color: #ffffff;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.12);
   transform: translateY(-1px);
 }
 
@@ -180,9 +190,10 @@ a:hover {
 /* Utility: Glassmorphism */
 .glass-panel {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(var(--glass-blur)) saturate(1.25);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.25);
   border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
 }
 
 /* Utility: Text Gradients (Subtle for this theme) */
@@ -199,18 +210,23 @@ a:hover {
   position: relative;
 }
 
-/* Cards (Bento / Module Style) */
+/* Cards (glass surfaces) */
 .card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border-subtle);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(1.2);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.2);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
   padding: 2rem;
   transition: all var(--transition-smooth);
   position: relative;
 }
 
 .card:hover {
-  border-color: var(--color-action);
-  box-shadow: 0 0 20px rgba(13, 92, 90, 0.2);
+  border-color: rgba(13, 92, 90, 0.45);
+  box-shadow:
+    var(--glass-shadow),
+    0 0 24px rgba(13, 92, 90, 0.12);
   transform: translateY(-4px) scale(1.01);
 }
 
