@@ -4,7 +4,7 @@
     <loc>https://ifee09.github.io/Arissa/</loc>
     <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <priority>1</priority>
   </url>
   <url>
     <loc>https://ifee09.github.io/Arissa/sistemas-a-medida</loc>
@@ -55,6 +55,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ifee09.github.io/Arissa/recursos</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://ifee09.github.io/Arissa/blog/cuanto-cuesta-software-a-medida-mexico-2026</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -65,5 +71,77 @@
     <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ifee09.github.io/Arissa/blog/automatizacion-procesos-pymes-mexicanas</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ifee09.github.io/Arissa/blog/como-elegir-consultora-software-mexico</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ifee09.github.io/Arissa/blog/integracion-sistemas-conecta-herramientas</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ifee09.github.io/Arissa/blog/diseno-ui-ux-software-empresarial</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ifee09.github.io/Arissa/blog/sistema-captacion-pacientes-clinicas</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ifee09.github.io/Arissa/blog/software-a-medida-vs-generico</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ifee09.github.io/Arissa/blog/diagnostico-software-antes-de-invertir</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ifee09.github.io/Arissa/blog/casos-exito-arissa-procesos-mexico</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ifee09.github.io/Arissa/blog/tendencias-software-empresarial-mexico-2026</loc>
+    <lastmod>2026-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ifee09.github.io/Arissa/recursos/guia-precios-software-a-medida-2026</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://ifee09.github.io/Arissa/recursos/checklist-automatizacion-procesos</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://ifee09.github.io/Arissa/recursos/plantilla-diagnostico-captacion-clinicas</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
   </url>
 </urlset>

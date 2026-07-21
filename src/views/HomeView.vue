@@ -21,6 +21,14 @@ useSeo(() => ({
       description:
         'Consultora de software a medida para clínicas y empresas en México.',
       areaServed: 'MX',
+      email: 'hola@arissa.mx',
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'sales',
+        email: 'hola@arissa.mx',
+        availableLanguage: ['Spanish'],
+        areaServed: 'MX',
+      },
     },
     {
       '@context': 'https://schema.org',
@@ -156,9 +164,9 @@ const differentiators = [
 ]
 
 // Dynamic Particle Count
-const particleCount = ref(400)
+const particleCount = ref(120)
 const updateParticleCount = () => {
-  particleCount.value = window.innerWidth >= 1024 ? 800 : 400
+  particleCount.value = window.innerWidth >= 1024 ? 220 : 100
 }
 
 onMounted(() => {
