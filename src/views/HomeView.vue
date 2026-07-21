@@ -594,8 +594,10 @@ onUnmounted(() => {
 /* Offerings Section */
 .section-services {
   padding: 4rem 0;
-  background: var(--color-surface);
-  border-bottom: 1px solid var(--color-border-subtle);
+  background: rgba(26, 26, 46, 0.28);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--glass-border);
 }
 
 .offerings-grid {
@@ -605,9 +607,12 @@ onUnmounted(() => {
 }
 
 .offering-card {
-  background: rgba(26, 26, 46, 0.4);
-  border: 1px solid var(--color-border-subtle);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(1.2);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.2);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow);
   padding: 2.5rem 2rem;
   transition: all var(--transition-smooth);
   display: flex;
@@ -630,12 +635,12 @@ onUnmounted(() => {
 }
 
 .offering-card:hover {
-  background: rgba(26, 26, 46, 0.7);
-  border-color: var(--color-action);
+  background: rgba(26, 26, 46, 0.58);
+  border-color: rgba(13, 92, 90, 0.45);
   transform: translateY(-5px) scale(1.01);
   box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.4),
-    0 0 20px rgba(13, 92, 90, 0.05);
+    var(--glass-shadow),
+    0 0 28px rgba(13, 92, 90, 0.12);
 }
 
 .offering-card:hover::before {
@@ -766,9 +771,12 @@ onUnmounted(() => {
 }
 
 .process-card {
-  background: rgba(26, 26, 46, 0.3);
-  border: 1px solid var(--color-border-subtle);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(1.2);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.2);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow);
   padding: 2.5rem 2rem;
   position: relative;
   overflow: hidden;
@@ -776,8 +784,8 @@ onUnmounted(() => {
 }
 
 .process-card:hover {
-  border-color: var(--color-action);
-  background: rgba(26, 26, 46, 0.5);
+  border-color: rgba(13, 92, 90, 0.45);
+  background: rgba(26, 26, 46, 0.55);
   transform: translateY(-3px);
 }
 
@@ -826,8 +834,10 @@ onUnmounted(() => {
 /* Differentiators Section */
 .section-differentiators {
   padding: 4rem 0;
-  background: var(--color-surface);
-  border-bottom: 1px solid var(--color-border-subtle);
+  background: rgba(26, 26, 46, 0.22);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--glass-border);
 }
 
 .differentiators-grid {
@@ -837,17 +847,22 @@ onUnmounted(() => {
 }
 
 .differentiator-card {
-  background: rgba(11, 12, 16, 0.5);
-  border: 1px solid var(--color-border-subtle);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(1.2);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.2);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow);
   padding: 2.5rem 2rem;
   transition: all var(--transition-smooth);
 }
 
 .differentiator-card:hover {
-  border-color: var(--color-action);
+  border-color: rgba(13, 92, 90, 0.45);
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    var(--glass-shadow),
+    0 0 24px rgba(13, 92, 90, 0.1);
 }
 
 .differentiator-icon {
@@ -888,8 +903,11 @@ onUnmounted(() => {
 }
 
 .cta-card {
-  background: linear-gradient(135deg, rgba(26, 26, 46, 0.6), rgba(26, 77, 143, 0.15));
-  border: 1px solid var(--color-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(1.25);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.25);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
   border-radius: var(--radius-lg);
   padding: 3rem 2rem;
   display: flex;

@@ -80,9 +80,12 @@ useSeo(() => ({
 
 .post-card {
   padding: 1.75rem;
-  border: 1px solid var(--color-border-subtle);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(1.2);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.2);
+  box-shadow: var(--glass-shadow);
 }
 
 .post-card time {
