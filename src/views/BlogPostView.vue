@@ -6,6 +6,9 @@ import { useSeo } from '@/composables/useSeo'
 
 const route = useRoute()
 const post = computed(() => getPost(route.params.slug))
+const guidePath = computed(() =>
+  post.value?.leadMagnet ? `/recursos/${post.value.leadMagnet}` : '/recursos',
+)
 
 useSeo(() => {
   if (!post.value) return null
@@ -69,7 +72,10 @@ useSeo(() => {
       <section class="cta">
         <h2>Agenda un diagnóstico con Arissa</h2>
         <p>{{ post.ctaText }}</p>
-        <RouterLink to="/diagnostico" class="btn btn-primary">Ir a Diagnóstico</RouterLink>
+        <div class="cta-actions">
+          <RouterLink :to="guidePath" class="btn btn-primary">Descargar Guía</RouterLink>
+          <RouterLink to="/diagnostico" class="btn btn-outline">Agendar Diagnóstico</RouterLink>
+        </div>
       </section>
     </div>
   </article>
@@ -156,5 +162,12 @@ useSeo(() => {
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
   background: rgba(13, 92, 90, 0.08);
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
 }
 </style>

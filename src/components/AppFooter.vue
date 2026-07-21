@@ -11,6 +11,7 @@ const footerLinks = {
     { name: 'Sobre Arissa', path: '/sobre-arissa' },
     { name: 'Portafolio', path: '/portafolio' },
     { name: 'Blog', path: '/blog' },
+    { name: 'Recursos', path: '/recursos' },
     { name: 'Diagnóstico', path: '/diagnostico' },
     { name: 'Contacto', path: '/contacto' },
   ],

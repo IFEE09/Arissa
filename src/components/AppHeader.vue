@@ -4,29 +4,20 @@ import { RouterLink } from 'vue-router'
 import ParticleCloud from './ParticleCloud.vue'
 
 const isMenuOpen = ref(false)
-const isDropdownOpen = ref(false)
 const isScrolledPastHero = ref(false)
 
-// Enlaces principales
 const mainLinks = [
   { name: 'Inicio', path: '/' },
   { name: 'Sistemas', path: '/sistemas-a-medida' },
   { name: 'Clínicas', path: '/captacion-digital-clinicas' },
   { name: 'Integración', path: '/integracion-procesos' },
   { name: 'Blog', path: '/blog' },
+  { name: 'Recursos', path: '/recursos' },
   { name: 'Portafolio', path: '/portafolio' },
 ]
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
-}
-
-const toggleDropdown = () => {
-  isDropdownOpen.value = !isDropdownOpen.value
-}
-
-const closeDropdown = () => {
-  isDropdownOpen.value = false
 }
 
 // Scroll detection logic - optimized with RAF throttle
@@ -67,7 +58,7 @@ onUnmounted(() => {
             style="filter: brightness(0) invert(1)"
           />
           <div v-else key="particles" class="logo-particles-cloud">
-            <ParticleCloud :count="150" :mini="true" />
+            <ParticleCloud :count="40" :mini="true" />
           </div>
         </transition>
       </RouterLink>

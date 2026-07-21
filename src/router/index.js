@@ -3,6 +3,8 @@ import HomeView from '../views/HomeView.vue'
 import SeoPageView from '../views/SeoPageView.vue'
 import BlogView from '../views/BlogView.vue'
 import BlogPostView from '../views/BlogPostView.vue'
+import LeadMagnetsView from '../views/LeadMagnetsView.vue'
+import LeadMagnetView from '../views/LeadMagnetView.vue'
 import MaintenancePage from '../views/MaintenancePage.vue'
 
 const router = createRouter({
@@ -64,6 +66,16 @@ const router = createRouter({
       path: '/blog/:slug',
       name: 'blog-post',
       component: BlogPostView,
+    },
+    {
+      path: '/recursos',
+      name: 'recursos',
+      component: LeadMagnetsView,
+    },
+    {
+      path: '/recursos/:slug',
+      name: 'recurso',
+      component: LeadMagnetView,
     },
     // Legacy redirects / aliases
     {

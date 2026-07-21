@@ -1,6 +1,6 @@
 // Auto-generated from SEO strategy content
-export const SITE_URL = 'https://ifee09.github.io/Arissa'
-export const OG_IMAGE = `${SITE_URL}/og-image-v3.png`
+export { SITE_URL, OG_IMAGE } from './siteConfig.js'
+import { blogPostsExtra } from './blogPostsExtra.js'
 
 export const pages = {
   "sistemas-a-medida": {
@@ -558,9 +558,10 @@ export const pages = {
   }
 }
 
-export const blogPosts = [
+const blogPostsBase = [
   {
     "slug": "cuanto-cuesta-software-a-medida-mexico-2026",
+    "leadMagnet": "guia-precios-software-a-medida-2026",
     "title": "Cuánto cuesta software a medida en México 2026",
     "description": "Guía de precios de software a medida en México 2026: rangos, qué influye el costo, errores comunes y cómo presupuestar sin sorpresas.",
     "datePublished": "2026-07-01",
@@ -640,6 +641,7 @@ export const blogPosts = [
     "description": "Guía práctica de captación digital para clínicas en México: landing, CRM, agenda, métricas y cómo dejar de perder pacientes.",
     "datePublished": "2026-07-15",
     "keyword": "captación digital clínicas",
+    "leadMagnet": "plantilla-diagnostico-captacion-clinicas",
     "sections": [
       {
         "h2": "Introducción: más pacientes no es más anuncios a ciegas",
@@ -712,6 +714,10 @@ export const blogPosts = [
     "ctaText": "Si tu clínica pierde pacientes entre el clic y la cita, pidamos un diagnóstico del embudo o una fase 1 de captación digital con métricas claras."
   }
 ]
+
+export const blogPosts = [...blogPostsBase, ...blogPostsExtra].sort((a, b) =>
+  a.datePublished < b.datePublished ? 1 : a.datePublished > b.datePublished ? -1 : 0,
+)
 
 export function getPage(slug) {
   return pages[slug] || null

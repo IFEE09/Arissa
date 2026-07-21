@@ -4,6 +4,7 @@ import AppHeader from './components/AppHeader.vue'
 import AppFooter from './components/AppFooter.vue'
 import CookieConsent from './components/CookieConsent.vue'
 import WelcomeSplash from './components/WelcomeSplash.vue'
+import WhatsAppFab from './components/WhatsAppFab.vue'
 </script>
 
 <template>
@@ -17,6 +18,7 @@ import WelcomeSplash from './components/WelcomeSplash.vue'
     </RouterView>
   </main>
   <AppFooter />
+  <WhatsAppFab />
   <CookieConsent />
 </template>
 
