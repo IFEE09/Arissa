@@ -1,9 +1,12 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import SeoPageView from '../views/SeoPageView.vue'
+import BlogView from '../views/BlogView.vue'
+import BlogPostView from '../views/BlogPostView.vue'
 import MaintenancePage from '../views/MaintenancePage.vue'
 
 const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -11,56 +14,94 @@ const router = createRouter({
       component: HomeView,
     },
     {
+      path: '/sistemas-a-medida',
+      name: 'sistemas-a-medida',
+      component: SeoPageView,
+      props: { slug: 'sistemas-a-medida', schemaType: 'Service' },
+    },
+    {
+      path: '/captacion-digital-clinicas',
+      name: 'captacion-digital-clinicas',
+      component: SeoPageView,
+      props: { slug: 'captacion-digital-clinicas', schemaType: 'Service' },
+    },
+    {
+      path: '/integracion-procesos',
+      name: 'integracion-procesos',
+      component: SeoPageView,
+      props: { slug: 'integracion-procesos', schemaType: 'Service' },
+    },
+    {
+      path: '/diagnostico',
+      name: 'diagnostico',
+      component: SeoPageView,
+      props: { slug: 'diagnostico', schemaType: 'Service' },
+    },
+    {
+      path: '/portafolio',
+      name: 'portafolio',
+      component: SeoPageView,
+      props: { slug: 'portafolio', schemaType: 'CollectionPage' },
+    },
+    {
+      path: '/sobre-arissa',
+      name: 'sobre-arissa',
+      component: SeoPageView,
+      props: { slug: 'sobre-arissa', schemaType: 'AboutPage' },
+    },
+    {
+      path: '/contacto',
+      name: 'contacto',
+      component: SeoPageView,
+      props: { slug: 'contacto', schemaType: 'ContactPage' },
+    },
+    {
+      path: '/blog',
+      name: 'blog',
+      component: BlogView,
+    },
+    {
+      path: '/blog/:slug',
+      name: 'blog-post',
+      component: BlogPostView,
+    },
+    // Legacy redirects / aliases
+    {
       path: '/casos-de-exito',
-      name: 'success-stories',
-      component: MaintenancePage,
-      props: {
-        title: 'Casos de Éxito',
-        icon: 'fa-solid fa-trophy',
-        message:
-          'Estamos documentando nuestros mejores proyectos. Próximamente podrás conocer cómo hemos transformado empresas.',
-      },
-    },
-    {
-      path: '/categoria/:category',
-      name: 'category',
-      component: MaintenancePage,
-      props: (route) => ({
-        title: `Noticias: ${route.params.category.toUpperCase()}`,
-        icon: 'fa-solid fa-newspaper',
-        message:
-          'Nuestro blog de tecnología está en desarrollo. Pronto publicaremos contenido exclusivo.',
-      }),
-    },
-    {
-      path: '/explorar',
-      name: 'explore',
-      component: MaintenancePage,
-      props: {
-        title: 'Explorar',
-        icon: 'fa-solid fa-compass',
-        message: 'Esta sección está en construcción. Vuelve pronto para descubrir más.',
-      },
-    },
-    {
-      path: '/articulo/:slug',
-      name: 'article',
-      component: MaintenancePage,
-      props: {
-        title: 'Artículo',
-        icon: 'fa-solid fa-file-lines',
-        message:
-          'Este artículo aún no está disponible. Estamos creando contenido de calidad para ti.',
-      },
+      redirect: '/portafolio',
     },
     {
       path: '/about',
-      name: 'about',
+      redirect: '/sobre-arissa',
+    },
+    {
+      path: '/privacidad',
+      name: 'privacy',
       component: MaintenancePage,
       props: {
-        title: 'Acerca de Nosotros',
-        icon: 'fa-solid fa-users',
-        message: 'Próximamente conocerás más sobre nuestro equipo y nuestra historia.',
+        title: 'Privacidad',
+        icon: 'fa-solid fa-shield',
+        message: 'Estamos actualizando nuestro aviso de privacidad.',
+      },
+    },
+    {
+      path: '/terminos',
+      name: 'terms',
+      component: MaintenancePage,
+      props: {
+        title: 'Términos',
+        icon: 'fa-solid fa-file-contract',
+        message: 'Estamos actualizando nuestros términos de servicio.',
+      },
+    },
+    {
+      path: '/cookies',
+      name: 'cookies',
+      component: MaintenancePage,
+      props: {
+        title: 'Cookies',
+        icon: 'fa-solid fa-cookie',
+        message: 'Estamos actualizando nuestra política de cookies.',
       },
     },
     {

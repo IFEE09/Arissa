@@ -3,14 +3,16 @@ import { RouterLink } from 'vue-router'
 
 const footerLinks = {
   soluciones: [
-    { name: 'Captación Digital para Clínicas', path: '/#servicios' },
-    { name: 'Sistemas a Medida', path: '/#servicios' },
-    { name: 'Optimización e Integración', path: '/#servicios' },
+    { name: 'Captación Digital para Clínicas', path: '/captacion-digital-clinicas' },
+    { name: 'Sistemas a Medida', path: '/sistemas-a-medida' },
+    { name: 'Integración de Procesos', path: '/integracion-procesos' },
   ],
   empresa: [
-    { name: 'Proceso', path: '/#proceso' },
-    { name: 'Por qué Arissa', path: '/#diferenciadores' },
-    { name: 'Agendar Diagnóstico', path: '/#diagnostico' },
+    { name: 'Sobre Arissa', path: '/sobre-arissa' },
+    { name: 'Portafolio', path: '/portafolio' },
+    { name: 'Blog', path: '/blog' },
+    { name: 'Diagnóstico', path: '/diagnostico' },
+    { name: 'Contacto', path: '/contacto' },
   ],
   legal: [
     { name: 'Privacidad', path: '/privacidad' },
@@ -34,7 +36,7 @@ const socialLinks = [
           <h3>¿Tu operación tiene fricción?</h3>
           <p>Agenda un diagnóstico. En 1–2 semanas tendrás un plan de implementación priorizado.</p>
         </div>
-        <a href="#diagnostico" class="btn btn-primary">Agendar Diagnóstico</a>
+        <RouterLink to="/diagnostico" class="btn btn-primary">Agendar Diagnóstico</RouterLink>
       </div>
 
       <!-- Footer Links -->
