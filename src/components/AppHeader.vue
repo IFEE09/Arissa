@@ -1,10 +1,11 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import ParticleCloud from './ParticleCloud.vue'
 
 const isMenuOpen = ref(false)
 const isScrolledPastHero = ref(false)
+const isMobile = ref(false)
 
 const mainLinks = [
   { name: 'Inicio', path: '/' },
@@ -16,12 +17,19 @@ const mainLinks = [
   { name: 'Portafolio', path: '/portafolio' },
 ]
 
+/** En móvil el círculo de partículas siempre; en desktop solo tras pasar el hero */
+const showParticles = computed(() => isMobile.value || isScrolledPastHero.value)
+
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
 
-// Scroll detection logic - optimized with RAF throttle
 let ticking = false
+let mobileMq
+
+const updateMobile = () => {
+  isMobile.value = mobileMq?.matches ?? window.innerWidth < 768
+}
 
 const handleScroll = () => {
   if (!ticking) {
@@ -35,10 +43,15 @@ const handleScroll = () => {
 }
 
 onMounted(() => {
+  mobileMq = window.matchMedia('(max-width: 767px)')
+  updateMobile()
+  mobileMq.addEventListener('change', updateMobile)
   window.addEventListener('scroll', handleScroll, { passive: true })
+  handleScroll()
 })
 
 onUnmounted(() => {
+  mobileMq?.removeEventListener('change', updateMobile)
   window.removeEventListener('scroll', handleScroll)
 })
 </script>
@@ -47,19 +60,19 @@ onUnmounted(() => {
   <header class="header">
     <div class="container header-content">
       <!-- Logo -->
-      <RouterLink to="/" class="logo">
+      <RouterLink to="/" class="logo" aria-label="Arissa">
         <transition name="fade" mode="out-in">
+          <div v-if="showParticles" key="particles" class="logo-particles-cloud">
+            <ParticleCloud :count="40" :mini="true" />
+          </div>
           <img
-            v-if="!isScrolledPastHero"
+            v-else
             key="logo"
             src="@/assets/Arissa-logo.png"
             alt="Arissa Logo"
             class="logo-icon"
             style="filter: brightness(0) invert(1)"
           />
-          <div v-else key="particles" class="logo-particles-cloud">
-            <ParticleCloud :count="40" :mini="true" />
-          </div>
         </transition>
       </RouterLink>
 
