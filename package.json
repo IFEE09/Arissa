@@ -12,7 +12,8 @@
     "preview": "vite preview",
     "lint": "eslint . --fix --cache",
     "format": "prettier --write --experimental-cli src/",
-    "refresh:og": "node scripts/refresh-og-cache.mjs"
+    "refresh:og": "node scripts/refresh-og-cache.mjs",
+    "deploy:pages": "node scripts/deploy-pages.mjs"
   },
   "dependencies": {
     "vue": "^3.5.26",
