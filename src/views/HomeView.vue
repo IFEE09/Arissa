@@ -1,6 +1,35 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { RouterLink } from 'vue-router'
 import ParticleCloud from '@/components/ParticleCloud.vue'
+import { useSeo } from '@/composables/useSeo'
+import { SITE_URL, OG_IMAGE } from '@/data/seoContent'
+
+useSeo(() => ({
+  title: 'Software a medida México | Arissa',
+  description:
+    'Arissa diseña software a medida para clínicas y empresas en México: captación digital, sistemas operativos e integración de procesos. Diagnóstico acreditable.',
+  path: '/',
+  image: OG_IMAGE,
+  jsonLd: [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'Arissa',
+      url: SITE_URL,
+      logo: `${SITE_URL}/favicon-arissa-logo.png`,
+      description:
+        'Consultora de software a medida para clínicas y empresas en México.',
+      areaServed: 'MX',
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Arissa',
+      url: SITE_URL,
+    },
+  ],
+}))
 
 // Typewriter effect — focused on the three core offers
 const typedText = ref('')
@@ -48,6 +77,7 @@ const offerings = [
     icon: 'fa-solid fa-stethoscope',
     features: ['Landing optimizada por especialidad', 'Agenda y confirmaciones automáticas', 'Seguimiento de prospectos', 'Tablero de resultados'],
     tag: 'Desde $2,000 USD',
+    path: '/captacion-digital-clinicas',
   },
   {
     id: 2,
@@ -57,6 +87,7 @@ const offerings = [
     icon: 'fa-solid fa-code',
     features: ['Dashboard con roles y permisos', 'Reglas de negocio y aprobaciones', 'Trazabilidad de procesos', 'Reportes en tiempo real'],
     tag: 'Proyectos por fases',
+    path: '/sistemas-a-medida',
   },
   {
     id: 3,
@@ -66,6 +97,7 @@ const offerings = [
     icon: 'fa-solid fa-link',
     features: ['Integración entre sistemas existentes', 'Eliminación de tareas manuales', 'Sincronización de datos', 'Alertas y notificaciones'],
     tag: 'Sprint de 4–6 semanas',
+    path: '/integracion-procesos',
   },
 ]
 
@@ -146,9 +178,9 @@ onUnmounted(() => {
     <section class="hero">
       <div class="container">
         <div class="hero-content animate-fadeIn">
-          <span class="hero-badge badge badge-accent">Software Empresarial a la Medida</span>
+          <span class="hero-badge badge badge-accent">Software a Medida México</span>
           <h1>
-            Arissa
+            Software a medida para clínicas y empresas en México
             <br />
             <span class="hero-tagline">
               Diseñamos y construimos
@@ -169,10 +201,10 @@ onUnmounted(() => {
             arquitectura que crece contigo.
           </p>
           <div class="hero-actions">
-            <a href="#diagnostico" class="btn btn-primary btn-lg">
+            <RouterLink to="/diagnostico" class="btn btn-primary btn-lg">
               Agendar Diagnóstico
               <i class="fa-solid fa-calendar"></i>
-            </a>
+            </RouterLink>
             <a href="#servicios" class="btn btn-outline btn-lg">Ver Soluciones</a>
           </div>
         </div>
@@ -221,9 +253,9 @@ onUnmounted(() => {
                 {{ feature }}
               </li>
             </ul>
-            <a href="#diagnostico" class="offering-cta">
+            <RouterLink :to="offering.path" class="offering-cta">
               Conocer más <i class="fa-solid fa-arrow-right"></i>
-            </a>
+            </RouterLink>
           </div>
         </div>
       </div>
@@ -281,10 +313,10 @@ onUnmounted(() => {
               y se acredita al proyecto cuando decidas avanzar.
             </p>
             <div class="cta-actions">
-              <a href="mailto:hola@arissa.dev?subject=Diagnóstico%20de%20operación" class="btn btn-primary btn-lg">
+              <RouterLink to="/diagnostico" class="btn btn-primary btn-lg">
                 Solicitar Diagnóstico
                 <i class="fa-solid fa-arrow-right"></i>
-              </a>
+              </RouterLink>
               <a href="#servicios" class="btn btn-outline btn-lg">Ver Soluciones Primero</a>
             </div>
           </div>

@@ -7,12 +7,14 @@ const isMenuOpen = ref(false)
 const isDropdownOpen = ref(false)
 const isScrolledPastHero = ref(false)
 
-// Enlaces principales (directos)
+// Enlaces principales
 const mainLinks = [
   { name: 'Inicio', path: '/' },
-  { name: 'Soluciones', path: '/#servicios' },
-  { name: 'Proceso', path: '/#proceso' },
-  { name: 'Por qué Arissa', path: '/#diferenciadores' },
+  { name: 'Sistemas', path: '/sistemas-a-medida' },
+  { name: 'Clínicas', path: '/captacion-digital-clinicas' },
+  { name: 'Integración', path: '/integracion-procesos' },
+  { name: 'Blog', path: '/blog' },
+  { name: 'Portafolio', path: '/portafolio' },
 ]
 
 const toggleMenu = () => {
@@ -82,9 +84,9 @@ onUnmounted(() => {
 
       <!-- Actions -->
       <div class="header-actions">
-        <a href="#diagnostico" class="btn btn-primary btn-subscribe">
+        <RouterLink to="/diagnostico" class="btn btn-primary btn-subscribe">
           <span>Agendar Diagnóstico</span>
-        </a>
+        </RouterLink>
       </div>
 
       <!-- Mobile Menu Button -->
@@ -105,7 +107,7 @@ onUnmounted(() => {
         {{ link.name }}
       </RouterLink>
 
-      <a href="#diagnostico" class="btn btn-primary" style="width: 100%; margin-top: 1rem" @click="isMenuOpen = false">Agendar Diagnóstico</a>
+      <RouterLink to="/diagnostico" class="btn btn-primary" style="width: 100%; margin-top: 1rem" @click="isMenuOpen = false">Agendar Diagnóstico</RouterLink>
     </nav>
   </header>
 </template>

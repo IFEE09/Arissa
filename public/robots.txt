@@ -2,8 +2,6 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://arissa.com/sitemap.xml
+Disallow: /api/
 
-# Crawl-delay (optional, be nice to servers)
-Crawl-delay: 1
+Sitemap: https://ifee09.github.io/Arissa/sitemap.xml
