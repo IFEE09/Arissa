@@ -59,58 +59,73 @@ onUnmounted(() => {
 <template>
   <header class="header">
     <div class="container header-content">
-      <!-- Logo -->
-      <RouterLink to="/" class="logo" aria-label="Arissa">
-        <transition name="fade" mode="out-in">
-          <div v-if="showParticles" key="particles" class="logo-particles-cloud">
-            <ParticleCloud :count="40" :mini="true" />
-          </div>
-          <img
-            v-else
-            key="logo"
-            src="@/assets/Arissa-logo.png"
-            alt="Arissa Logo"
-            class="logo-icon"
-            style="filter: brightness(0) invert(1)"
-          />
-        </transition>
-      </RouterLink>
-
-      <!-- Desktop Navigation -->
-      <nav class="nav-desktop">
-        <!-- Enlaces directos -->
-        <RouterLink v-for="link in mainLinks" :key="link.path" :to="link.path" class="nav-link">
-          {{ link.name }}
-        </RouterLink>
-
-
-      </nav>
-
-      <!-- Actions -->
-      <div class="header-actions">
-        <RouterLink to="/diagnostico" class="btn btn-primary btn-subscribe">
-          <span>Agendar Diagnóstico</span>
-        </RouterLink>
+      <!-- Izquierda: partículas -->
+      <div class="header-left">
+        <div v-if="showParticles" class="logo-particles-cloud" aria-hidden="true">
+          <ParticleCloud :count="40" :mini="true" />
+        </div>
       </div>
 
-      <!-- Mobile Menu Button -->
-      <button
-        class="menu-toggle"
-        type="button"
-        :class="{ open: isMenuOpen }"
-        :aria-expanded="isMenuOpen"
-        aria-label="Menú"
-        @click="toggleMenu"
-      >
-        <span class="menu-toggle-lines" aria-hidden="true">
-          <span class="menu-line"></span>
-          <span class="menu-line"></span>
-          <span class="menu-line"></span>
-        </span>
-      </button>
+      <!-- Centro (móvil) / marca: isotipo + ARISSA -->
+      <RouterLink to="/" class="brand" aria-label="Arissa — inicio">
+        <svg
+          class="brand-iso"
+          viewBox="0 0 64 64"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <!-- Arcos del círculo (con huecos para la aguja) -->
+          <path
+            d="M20.5 18.5a18.5 18.5 0 0 0 0 27"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="5.5"
+            stroke-linecap="butt"
+          />
+          <path
+            d="M43.5 18.5a18.5 18.5 0 0 1 0 27"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="5.5"
+            stroke-linecap="butt"
+          />
+          <!-- Aguja / diamante vertical -->
+          <path d="M32 6 L37.2 32 L32 58 L26.8 32 Z" fill="currentColor" />
+        </svg>
+        <span class="brand-name">ARISSA</span>
+      </RouterLink>
+
+      <!-- Derecha: nav desktop + CTA + hamburguesa -->
+      <div class="header-right">
+        <nav class="nav-desktop">
+          <RouterLink v-for="link in mainLinks" :key="link.path" :to="link.path" class="nav-link">
+            {{ link.name }}
+          </RouterLink>
+        </nav>
+
+        <div class="header-actions">
+          <RouterLink to="/diagnostico" class="btn btn-primary btn-subscribe">
+            <span>Agendar Diagnóstico</span>
+          </RouterLink>
+        </div>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          :class="{ open: isMenuOpen }"
+          :aria-expanded="isMenuOpen"
+          aria-label="Menú"
+          @click="toggleMenu"
+        >
+          <span class="menu-toggle-lines" aria-hidden="true">
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+          </span>
+        </button>
+      </div>
     </div>
 
-    <!-- Mobile Navigation -->
     <nav class="nav-mobile" :class="{ open: isMenuOpen }">
       <RouterLink
         v-for="link in mainLinks"
@@ -134,7 +149,6 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-/* Header Background */
 .header {
   position: sticky;
   top: 0;
@@ -147,67 +161,72 @@ onUnmounted(() => {
 }
 
 .header-content {
+  display: grid;
+  grid-template-columns: 48px 1fr 48px;
+  align-items: center;
+  height: 72px;
+  gap: 0.5rem;
+}
+
+.header-left {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 100px;
-  gap: 1rem;
-}
-
-@media (min-width: 768px) {
-  .header-content {
-    gap: 2rem;
-  }
-}
-
-/* Logo Styles */
-.logo {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  height: 60px;
-}
-
-.logo-icon {
-  height: 140px;
-  width: auto;
-  margin: -40px 0;
-  object-fit: contain;
+  justify-content: flex-start;
+  min-height: 48px;
 }
 
 .logo-particles-cloud {
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   position: relative;
-  background: radial-gradient(circle, rgba(13, 92, 90, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(13, 92, 90, 0.18) 0%, transparent 70%);
   border-radius: 50%;
 }
 
-/* Vue Transitions */
-.fade-enter-active,
-.fade-leave-active {
-  transition:
-    opacity 0.5s ease,
-    transform 0.5s ease;
+/* Marca centrada en móvil */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  color: var(--color-text-main);
+  justify-self: center;
+  z-index: 1;
 }
 
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-  transform: translateY(10px) scale(0.9);
+.brand:hover {
+  color: var(--color-text-main);
+  text-shadow: none;
 }
 
-.logo:hover .logo-icon {
-  opacity: 0.9;
+.brand-iso {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  color: var(--color-text-main);
 }
 
-/* Desktop Navigation */
+.brand-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  line-height: 1;
+  padding-left: 0.05em; /* equilibra el tracking al final */
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
 .nav-desktop {
   display: none;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.35rem;
 }
 
 .nav-link {
@@ -243,12 +262,6 @@ onUnmounted(() => {
   width: 100%;
 }
 
-@media (min-width: 768px) {
-  .nav-desktop {
-    display: flex;
-  }
-}
-
 .header-actions {
   display: flex;
   align-items: center;
@@ -259,7 +272,7 @@ onUnmounted(() => {
   display: none;
 }
 
-/* Mobile Menu Toggle — fino / glass */
+/* Hamburguesa fina / glass */
 .menu-toggle {
   display: inline-flex;
   align-items: center;
@@ -277,8 +290,7 @@ onUnmounted(() => {
   z-index: 1001;
   transition:
     background var(--transition-fast),
-    border-color var(--transition-fast),
-    box-shadow var(--transition-fast);
+    border-color var(--transition-fast);
 }
 
 .menu-toggle:hover {
@@ -328,10 +340,9 @@ onUnmounted(() => {
   transform: translateY(-6.25px) rotate(-45deg);
 }
 
-/* Mobile Navigation */
 .nav-mobile {
   position: fixed;
-  top: 100px;
+  top: 72px;
   left: 0;
   width: 100%;
   background: var(--glass-bg-strong);
@@ -359,7 +370,9 @@ onUnmounted(() => {
   letter-spacing: 0.12em;
   color: var(--color-text-muted);
   border-bottom: 1px solid var(--glass-border);
-  transition: color var(--transition-fast), background var(--transition-fast);
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast);
 }
 
 .nav-link-mobile:hover,
@@ -369,6 +382,53 @@ onUnmounted(() => {
 }
 
 @media (min-width: 768px) {
+  .header-content {
+    display: flex;
+    grid-template-columns: unset;
+    height: 88px;
+    gap: 1.75rem;
+  }
+
+  .header-left {
+    display: flex;
+    order: 0;
+    width: auto;
+    min-width: 0;
+  }
+
+  .header-left:not(:has(.logo-particles-cloud)) {
+    display: none;
+  }
+
+  .brand {
+    justify-self: unset;
+    order: 1;
+    gap: 0.65rem;
+    margin-right: 0.25rem;
+  }
+
+  .brand-iso {
+    width: 32px;
+    height: 32px;
+  }
+
+  .brand-name {
+    font-size: 1.15rem;
+    letter-spacing: 0.24em;
+  }
+
+  .header-right {
+    order: 2;
+    flex: 1;
+    justify-content: flex-end;
+    gap: 1.5rem;
+  }
+
+  .nav-desktop {
+    display: flex;
+    margin-right: auto;
+  }
+
   .btn-subscribe {
     display: flex;
   }
@@ -380,102 +440,5 @@ onUnmounted(() => {
   .nav-mobile {
     display: none;
   }
-}
-
-/* Dropdown Styles */
-.nav-dropdown {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.dropdown-toggle {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-text-muted);
-  padding: 0.5rem 0;
-  line-height: normal;
-  transition: all var(--transition-fast);
-}
-
-.dropdown-toggle:hover {
-  color: var(--color-text-main);
-}
-
-.dropdown-toggle svg {
-  transition: transform var(--transition-fast);
-}
-
-.nav-dropdown:hover .dropdown-toggle svg,
-.dropdown-menu.open + .dropdown-toggle svg {
-  transform: rotate(180deg);
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 180px;
-  background: var(--glass-bg-strong);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--glass-shadow);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition: all var(--transition-fast);
-  z-index: 100;
-  padding: 0.5rem 0;
-  margin-top: 0.5rem;
-}
-
-.dropdown-menu.open {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.dropdown-item {
-  display: block;
-  padding: 0.75rem 1.25rem;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-text-muted);
-  text-decoration: none;
-  transition: all var(--transition-fast);
-}
-
-.dropdown-item:hover {
-  background: rgba(13, 92, 90, 0.15);
-  color: var(--color-action);
-}
-
-.mobile-section-title {
-  padding: 1.5rem 2rem 0.5rem;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--color-action);
-  border-top: 1px solid var(--color-border-subtle);
-  margin-top: 1rem;
-}
-
-.nav-link-sub {
-  padding-left: 3rem;
-  font-size: 1rem;
 }
 </style>
